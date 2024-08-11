@@ -18,6 +18,12 @@ public class CameraMovement : MonoBehaviour {
     const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
     const string yAxis = "Mouse Y";
 
+    private void Start() 
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;    
+    }
+
     void Update(){
         // rotation.x += Input.GetAxis(xAxis) * sensitivity * 0;
         rotation.y += Input.GetAxis(yAxis) * sensitivity;
