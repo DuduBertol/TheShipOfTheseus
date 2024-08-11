@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour {
         set { sensitivity = value; }
     }
     [Range(0.1f, 9f)][SerializeField] public float sensitivity = 2f;
-    [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
     [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
+    [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
 
     Vector2 rotation = Vector2.zero;
     const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage

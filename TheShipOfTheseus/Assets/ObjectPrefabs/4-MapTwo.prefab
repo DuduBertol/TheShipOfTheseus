@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 5550361745379183989}
   m_Layer: 0
   m_Name: 4-MapTwo
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardObjectSO: {fileID: 11400000, guid: 067b776356d40bf4c96f92546b080334, type: 2}
+  isMainObject: 1
 --- !u!65 &812171346863148376
 BoxCollider:
   m_ObjectHideFlags: 0

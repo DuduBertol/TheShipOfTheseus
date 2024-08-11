@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,19 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    /* public event EventHandler<OnAnyObjectDroppedOnBoardEventArgs> OnAnyObjectDroppedOnBoard;
+    public class OnAnyObjectDroppedOnBoardEventArgs: EventArgs
+    {
+        public BoardObject boardObject;
+    } */
+
     public GameObject player;
     public Transform holdPos;
     public Transform objectsPlaceArea;
     public float pickUpRange = 5f;
     public float throwForce = 500f;
     
+    [Range(0.1f, 9f)][SerializeField] private float rotationSensitivity = 1f;
     [SerializeField] private List<Transform> objectsInBoardList;
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private Movement movement;
@@ -20,12 +28,14 @@ public class PickUp : MonoBehaviour
     // private BoardObjectSO boardObjectSO;
     private Rigidbody heldObjectRigidboby;
     private bool canDrop = true;
-    private float rotationSensitivity = 1f;
+    private float initialCamSensivity;
+    private float initialMoveSensivity;
 
 
     private void Start() 
     {
-
+        initialCamSensivity = cameraMovement.sensitivity;
+        initialMoveSensivity = movement.sensitivity;
     }
 
     private void Update()
@@ -41,6 +51,12 @@ public class PickUp : MonoBehaviour
                     //make sure pickup tag is attached
                     if (hit.transform.gameObject.tag == "canPickUp")
                     {
+                        if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            hit.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(false);
+                            GameController.Instance.DecreaseObjectsInBoardAmount();
+                        }
+
                         //pass in object hit into the PickUpObject function
                         PickUpObject(hit.transform.gameObject);
                     }
@@ -53,6 +69,11 @@ public class PickUp : MonoBehaviour
                     //StopClipping(); //prevents object from clipping through walls
                     if(heldObject.GetComponent<BoardObject>().GetCanDropOnBoard()) 
                     { //drop on board
+                        if(!heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            heldObject.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(true);
+                            GameController.Instance.IncreaseObjectsInBoardAmount();
+                        }
                         DropObjectOnBoard();
                     }
                     else 
@@ -119,6 +140,8 @@ public class PickUp : MonoBehaviour
         heldObject.transform.parent = objectsPlaceArea; //parent as board
         heldObject.transform.localPosition = new Vector3(0, heldObject.transform.localPosition.y, heldObject.transform.localPosition.z); 
         heldObject.transform.localEulerAngles = Vector3.zero;
+        heldObject.GetComponent<BoardObject>().SetIsOnBoard(true);
+
         heldObject = null; //undefine game object
 
         // GetChildInBoard();
@@ -131,6 +154,7 @@ public class PickUp : MonoBehaviour
             canDrop = false; //make sure throwing can't occur during rotating
 
             //disable player being able to look around
+
             cameraMovement.sensitivity = 0f;
             movement.sensitivity = 0f;
 
@@ -143,8 +167,8 @@ public class PickUp : MonoBehaviour
         else
         {
             //re-enable player being able to look around
-            cameraMovement.sensitivity = 2f;
-            movement.sensitivity = 2f;
+            cameraMovement.sensitivity = initialCamSensivity;
+            movement.sensitivity = initialMoveSensivity;
             canDrop = true;
         }
     }

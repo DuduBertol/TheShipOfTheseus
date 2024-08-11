@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardObjectSO: {fileID: 11400000, guid: aa51f7750e0eb2642a92a5003241957e, type: 2}
+  isMainObject: 1
 --- !u!1 &7256809593089709647
 GameObject:
   m_ObjectHideFlags: 0

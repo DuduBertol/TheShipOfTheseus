@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4426207204568889821}
   - component: {fileID: 5882554286946194443}
   - component: {fileID: 1645353063604581480}
-  - component: {fileID: 9049691671759136982}
   m_Layer: 0
   m_Name: MapModelOne
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9049691671759136982
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645127547618654706}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7559147840982253987
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +97,7 @@ GameObject:
   - component: {fileID: 243041219830341137}
   m_Layer: 0
   m_Name: 9-CardFour
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardObjectSO: {fileID: 11400000, guid: b07245dc74449d24db948ee1b60eb910, type: 2}
+  isMainObject: 1
+  isOnBoard: 0
 --- !u!65 &843043682656248781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -172,8 +152,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.07624054, y: 0.7462559, z: 0.5394249}
+  m_Center: {x: 0.004802704, y: 0.002339363, z: 0.009977341}
 --- !u!54 &243041219830341137
 Rigidbody:
   m_ObjectHideFlags: 0

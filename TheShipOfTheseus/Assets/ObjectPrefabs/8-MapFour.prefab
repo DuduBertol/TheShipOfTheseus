@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2990786078220469893}
   - component: {fileID: 2367873982986492226}
   - component: {fileID: 7366626087514290194}
-  - component: {fileID: 543290764783374098}
   m_Layer: 0
   m_Name: MapModelOne
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &543290764783374098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313043855036189289}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8759205978261173004
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +97,7 @@ GameObject:
   - component: {fileID: 818615697254426876}
   m_Layer: 0
   m_Name: 8-MapFour
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardObjectSO: {fileID: 11400000, guid: 77bc9ed0d50960d4fab9d092c2e988d1, type: 2}
+  isMainObject: 1
+  isOnBoard: 0
 --- !u!65 &5989066397847339446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -172,7 +152,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.060793877, y: 0.5221348, z: 0.71567535}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &818615697254426876
 Rigidbody:
