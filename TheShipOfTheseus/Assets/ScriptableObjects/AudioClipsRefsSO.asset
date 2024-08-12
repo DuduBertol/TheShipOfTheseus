@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956b4c135ca27804ab5cddb255904f3f, type: 3}
+  m_Name: AudioClipsRefsSO
+  m_EditorClassIdentifier: 
+  footsteps:
+  - {fileID: 8300000, guid: 3d68da1a8d5619d4b9b11e04f81ef521, type: 3}
+  - {fileID: 8300000, guid: 3f22febbe3f2f814bb9532745cc876dc, type: 3}
+  - {fileID: 8300000, guid: 5d4eadd5f0297604d8f2bd0040f34ec9, type: 3}
+  - {fileID: 8300000, guid: 81d8a4778edddca428177046a2fd5b6a, type: 3}
+  paper:
+  - {fileID: 8300000, guid: 373e756dcbb59d642bb7f2bfd81ffa3b, type: 3}
+  - {fileID: 8300000, guid: caf34f6915984a043a2a037fcb39c09c, type: 3}
+  - {fileID: 8300000, guid: e44d6455d4bcf544e95fe21408538a70, type: 3}
+  - {fileID: 8300000, guid: 34df7bc1222ba6e458beb20cb25e76c0, type: 3}
+  - {fileID: 8300000, guid: 4926da8ad3552cb43b785e296403bf71, type: 3}
+  bed: {fileID: 8300000, guid: 23b6a5f275947a547a082d1c74988db0, type: 3}
+  door: {fileID: 8300000, guid: 9033369c1d31de044bffee504302e2c0, type: 3}
+  key: {fileID: 8300000, guid: 2e377c2d5cfeac243af771eb3000d36c, type: 3}
+  locker: {fileID: 8300000, guid: c42e29497d76f8d49ad05d48780fdb14, type: 3}
+  pin: {fileID: 8300000, guid: 05fd6211e90335348960f5d7ec832592, type: 3}
+  throwObj: {fileID: 8300000, guid: 982c19f2388940e47b0d8c78aae044c2, type: 3}
+  woodBreak: {fileID: 8300000, guid: f5b0e84f3655bbc48a43dc775e8c11b7, type: 3}
+  musicAmbience: {fileID: 8300000, guid: fe8d6b599b4518d489bcff3b076a7ef7, type: 3}

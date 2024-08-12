@@ -15,11 +15,18 @@ public class BoardObject: MonoBehaviour
         {
             // Debug.Log("Cubo bateu no quadro.E pode ser colocado.");
             canDropOnBoard = true;
-
-            /* if(isMainObject)
+            if(isMainObject)
             {
-                GameController.Instance.IncreaseObjectsInBoardAmount();
-            } */
+                SoundManager.Instance.PlayPaperSound(transform.position, 1);
+            }
+            else
+            {
+                SoundManager.Instance.PlayPinSound(transform.position, 1);
+            }
+        }
+        if(collider.gameObject.CompareTag("Ground"))
+        {
+            SoundManager.Instance.PlayPaperSound(transform.position, 1);
         }
     }
     
@@ -30,10 +37,14 @@ public class BoardObject: MonoBehaviour
             // Debug.Log("Cubo Vermelho saiu do quadro. E não pode ser colocado.");
             canDropOnBoard = false;
 
-            /* if(isMainObject)
+            if(isMainObject)
             {
-                GameController.Instance.DecreaseObjectsInBoardAmount();
-            } */
+                SoundManager.Instance.PlayPaperSound(transform.position, 1);
+            }
+            else
+            {
+                SoundManager.Instance.PlayPinSound(transform.position, 1);
+            }
         }
     }
 

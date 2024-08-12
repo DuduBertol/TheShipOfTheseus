@@ -20,9 +20,11 @@ public class PickUp : MonoBehaviour
     public float throwForce = 500f;
     
     [Range(0.1f, 9f)][SerializeField] private float rotationSensitivity = 1f;
-    [SerializeField] private List<Transform> objectsInBoardList;
+    [SerializeField] private LayerMask playerLayer;
+    
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private Movement movement;
+
     
     private GameObject heldObject;
     // private BoardObjectSO boardObjectSO;
@@ -30,10 +32,15 @@ public class PickUp : MonoBehaviour
     private bool canDrop = true;
     private float initialCamSensivity;
     private float initialMoveSensivity;
+    private int layerNumber;
 
 
     private void Start() 
     {
+        cameraMovement.enabled = true;
+
+        layerNumber = LayerMask.NameToLayer("holdLayer");
+
         initialCamSensivity = cameraMovement.sensitivity;
         initialMoveSensivity = movement.sensitivity;
     }
@@ -46,7 +53,7 @@ public class PickUp : MonoBehaviour
             {
                 //perform raycast to check if player is looking at object within pickuprange
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
                 {
                     //make sure pickup tag is attached
                     if (hit.transform.gameObject.tag == "canPickUp")
@@ -55,10 +62,19 @@ public class PickUp : MonoBehaviour
                         {
                             hit.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(false);
                             GameController.Instance.DecreaseObjectsInBoardAmount();
-                        }
 
+                        }
+                        if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            SoundManager.Instance.PlayPaperSound(hit.transform.position, 1);
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlayPinSound(hit.transform.position, 1);
+                        }
                         //pass in object hit into the PickUpObject function
                         PickUpObject(hit.transform.gameObject);
+
                     }
                 }
             }
@@ -73,6 +89,12 @@ public class PickUp : MonoBehaviour
                         {
                             heldObject.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(true);
                             GameController.Instance.IncreaseObjectsInBoardAmount();
+
+                            SoundManager.Instance.PlayPaperSound(heldObject.transform.position, 1);
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlayPinSound(heldObject.transform.position, 1);
                         }
                         DropObjectOnBoard();
                     }
@@ -114,9 +136,25 @@ public class PickUp : MonoBehaviour
             heldObjectRigidboby = pickUpObj.GetComponent<Rigidbody>(); 
             heldObjectRigidboby.isKinematic = true;
             heldObjectRigidboby.transform.parent = holdPos.transform; 
-            heldObject.transform.position = holdPos.transform.position; 
+            heldObject.layer = layerNumber; //change the object layer to the holdLayer
+            if(heldObject.transform.childCount != 0)
+            {
+                heldObject.transform.GetChild(0).gameObject.layer = layerNumber;
+                heldObject.transform.GetChild(1).gameObject.layer = layerNumber;
+            }
 
-            // heldObj.layer = LayerNumber; //change the object layer to the holdLayer
+            heldObject.transform.rotation = Quaternion.RotateTowards(heldObject.transform.rotation, Quaternion.Euler(0, 90, 0), 1f);
+
+            // heldObject.transform.position = holdPos.transform.position; 
+            // heldObject.transform.position = Vector3.zero;
+            // ResetObjectRotation();
+
+            /* Debug.Log(heldObject.transform.position);
+            Debug.Log(holdPos.transform.position);
+            Debug.Log(heldObject.transform.localPosition);
+            Debug.Log(holdPos.transform.localPosition); */
+
+
             Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
     }
@@ -125,7 +163,12 @@ public class PickUp : MonoBehaviour
     {
         //re-enable collision with player
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        //heldObj.layer = 0; //object assigned back to default layer
+        heldObject.layer = 8; //object assigned back to default layer
+        if(heldObject.transform.childCount != 0)
+        {
+            heldObject.transform.GetChild(0).gameObject.layer = 8;
+            heldObject.transform.GetChild(1).gameObject.layer = 8;
+        }
         heldObjectRigidboby.isKinematic = false;
         heldObject.transform.parent = null; //unparent object
         heldObject = null; //undefine game object
@@ -135,7 +178,12 @@ public class PickUp : MonoBehaviour
     {
         //re-enable collision with player
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        //heldObj.layer = 0; //object assigned back to default layer
+        heldObject.layer = 8; //object assigned back to default layer
+        if(heldObject.transform.childCount != 0)
+        {
+            heldObject.transform.GetChild(0).gameObject.layer = 8;
+            heldObject.transform.GetChild(1).gameObject.layer = 8;
+        }
         heldObjectRigidboby.isKinematic = true;
         heldObject.transform.parent = objectsPlaceArea; //parent as board
         heldObject.transform.localPosition = new Vector3(0, heldObject.transform.localPosition.y, heldObject.transform.localPosition.z); 
@@ -151,6 +199,8 @@ public class PickUp : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))//hold R key to rotate, change this to whatever key you want
         {
+            GameController.Instance.ShowLens(true);
+
             canDrop = false; //make sure throwing can't occur during rotating
 
             //disable player being able to look around
@@ -162,10 +212,12 @@ public class PickUp : MonoBehaviour
             float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
             //rotate the object depending on mouse X-Y Axis
             heldObject.transform.Rotate(Vector3.down, XaxisRotation);
-            heldObject.transform.Rotate(Vector3.right, YaxisRotation);
+            heldObject.transform.Rotate(Vector3.forward, YaxisRotation);
         }
         else
         {
+            GameController.Instance.ShowLens(false);
+
             //re-enable player being able to look around
             cameraMovement.sensitivity = initialCamSensivity;
             movement.sensitivity = initialMoveSensivity;
@@ -181,29 +233,33 @@ public class PickUp : MonoBehaviour
 
     private void ThrowObject()
     {
+        SoundManager.Instance.PlayThrowSound(heldObject.transform.position, 1);
+
         //same as drop function, but add force to object before undefining it
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        // heldObj.layer = 0;
+        heldObject.layer = 8;
+        if(heldObject.transform.childCount != 0)
+        {
+            heldObject.transform.GetChild(0).gameObject.layer = 8;
+            heldObject.transform.GetChild(1).gameObject.layer = 8;
+        }
         heldObjectRigidboby.isKinematic = false;
         heldObject.transform.parent = null;
         heldObjectRigidboby.AddForce(transform.forward * throwForce);
         heldObject = null;
     }
 
+    /* private void ResetObjectRotation()
+    {
+        Vector3 actualRotation = heldObject.transform.eulerAngles;
+
+        heldObject.transform.localEulerAngles = new Vector3(Mathf.Lerp(actualRotation.x, 0, 0.2f), Mathf.Lerp(actualRotation.y, 90f, 0.2f), Mathf.Lerp(actualRotation.y, 0, 0.2f));
+    } */
+
     private BoardObjectSO GetHeldObjectBoardObjectSO()
     {
         return heldObject.GetComponent<BoardObject>().GetBoardObjectSO();
     }
-
-    /* private void GetChildInBoard()
-    {
-        int child = objectsPlaceArea.childCount;
-
-        for (int i = 0; i < child; i++)
-        {
-            objectsInBoardList.Append(objectsPlaceArea.GetChild(i));
-        }
-    } */
 
     
 }

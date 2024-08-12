@@ -31,6 +31,8 @@ public class Movement : MonoBehaviour
 
     private void HandleMovement()
     {
+        if(!GameController.Instance.IsGameStarted || GameController.Instance.IsGamePaused) return;
+
         x += Input.GetAxis("Mouse X") * sensitivity;
         var xQuat = Quaternion.AngleAxis(x, Vector3.up);
         transform.localRotation = xQuat;

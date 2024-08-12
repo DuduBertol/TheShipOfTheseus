@@ -6,6 +6,8 @@ TagManager:
   tags:
   - canPickUp
   - boardDrop
+  - Ground
+  - FinalDoor
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - Water
   - UI
   - holdLayer
-  - 
-  - 
+  - player
+  - objectsLayer
   - 
   - 
   - 

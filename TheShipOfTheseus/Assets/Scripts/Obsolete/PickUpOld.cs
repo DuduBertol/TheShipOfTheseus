@@ -14,6 +14,8 @@ public class PickUpOld : MonoBehaviour
     private Rigidbody heldObjRb; //rigidbody of object we pick up
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
+    [SerializeField] private Transform photoObject;
+
 
     //Reference to script which includes mouse movement of player (looking around)
     //we want to disable the player looking around when rotating the object
@@ -21,6 +23,8 @@ public class PickUpOld : MonoBehaviour
     //MouseLookScript mouseLookScript;
     void Start()
     {
+        heldObj = photoObject.gameObject;
+
         LayerNumber = LayerMask.NameToLayer("holdLayer"); //if your holdLayer is named differently make sure to change this ""
 
         //mouseLookScript = player.GetComponent<MouseLookScript>();
