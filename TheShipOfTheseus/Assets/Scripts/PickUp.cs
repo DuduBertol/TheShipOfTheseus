@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,24 +50,32 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
+        RaycastHit inGameHit;
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out inGameHit, pickUpRange, ~playerLayer))
         {
-            if (heldObject == null) //if currently not holding anything
+            if(inGameHit.transform.gameObject.tag == "canPickUp" && GameController.Instance.IsGameStarted)
             {
-                //perform raycast to check if player is looking at object within pickuprange
+                GameController.Instance.ActiveSelectionCursor(true);
+            }
+            else
+            {
+                GameController.Instance.ActiveSelectionCursor(false);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            if (heldObject == null) 
+            {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
                 {
-                    //make sure pickup tag is attached
                     if (hit.transform.gameObject.tag == "canPickUp")
                     {
-                        // GameController.Instance.ActiveSelectionCursor(true);
-
                         if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
                         {
                             hit.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(false);
                             GameController.Instance.DecreaseObjectsInBoardAmount();
-
                         }
                         if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
                         {
@@ -79,21 +85,16 @@ public class PickUp : MonoBehaviour
                         {
                             SoundManager.Instance.PlayPinSound(hit.transform.position, 1);
                         }
-                        //pass in object hit into the PickUpObject function
                         PickUpObject(hit.transform.gameObject);
-
                     }
                 }
             }
             else
             {
-                // GameController.Instance.ActiveSelectionCursor(false);
-
                 if(canDrop == true)
                 {
-                    //StopClipping(); //prevents object from clipping through walls
                     if(heldObject.GetComponent<BoardObject>().GetCanDropOnBoard()) 
-                    { //drop on board
+                    { 
                         if(!heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
                         {
                             heldObject.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(true);
@@ -108,18 +109,17 @@ public class PickUp : MonoBehaviour
                         DropObjectOnBoard();
                     }
                     else 
-                    { //drop on floor
+                    { 
                         DropObject();
                     }
                 }
             }
         }
 
-        if (heldObject != null) //if player is holding object
+        if (heldObject != null) 
         {
             if(heldObject.GetComponent<BoardObject>().GetIsCard())
             {
-                GameController.Instance.ToggleLerFText();
                 if(Input.GetKeyDown(KeyCode.F))
                 {
                     int cardNumber = heldObject.GetComponent<BoardObject>().GetCardNumber();
@@ -127,24 +127,15 @@ public class PickUp : MonoBehaviour
                 }
             }
 
-            MoveObject(); //keep object position at holdPos
+            MoveObject(); 
             RotateObject();
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true)
             {
-                // StopClipping();
                 ThrowObject();
             }
-
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.green);
-
-        //meus testes
-        /* if(GetHeldObjectBoardObjectSO().parentOnBoard != null)
-        {
-            Debug.Log(GetHeldObjectBoardObjectSO().parentOnBoard.transform.position);
-        } */
-
     }
 
     private void PickUpObject(GameObject pickUpObj)
@@ -155,81 +146,71 @@ public class PickUp : MonoBehaviour
             heldObjectRigidboby = pickUpObj.GetComponent<Rigidbody>(); 
             heldObjectRigidboby.isKinematic = true;
             heldObjectRigidboby.transform.parent = holdPos.transform; 
-            heldObject.layer = layerNumber; //change the object layer to the holdLayer
+            heldObject.layer = layerNumber; 
             if(heldObject.transform.childCount != 0)
             {
                 heldObject.transform.GetChild(0).gameObject.layer = layerNumber;
                 heldObject.transform.GetChild(1).gameObject.layer = layerNumber;
             }
-
             heldObject.transform.rotation = Quaternion.RotateTowards(heldObject.transform.rotation, Quaternion.Euler(0, 90, 0), 1f);
-
-            // heldObject.transform.position = holdPos.transform.position; 
-            // heldObject.transform.position = Vector3.zero;
-            // ResetObjectRotation();
-
-            /* Debug.Log(heldObject.transform.position);
-            Debug.Log(holdPos.transform.position);
-            Debug.Log(heldObject.transform.localPosition);
-            Debug.Log(holdPos.transform.localPosition); */
-
-
+            
+            if(heldObject.GetComponent<BoardObject>().GetIsCard())
+            {
+                GameController.Instance.ActiveLerFText(true);
+            }
             Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
     }
 
     private void DropObject()
     {
-        //re-enable collision with player
+        GameController.Instance.ActiveLerFText(false);
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        heldObject.layer = 8; //object assigned back to default layer
+
+        heldObject.layer = 8; 
         if(heldObject.transform.childCount != 0)
         {
             heldObject.transform.GetChild(0).gameObject.layer = 8;
             heldObject.transform.GetChild(1).gameObject.layer = 8;
         }
         heldObjectRigidboby.isKinematic = false;
-        heldObject.transform.parent = null; //unparent object
-        heldObject = null; //undefine game object
+        heldObject.transform.parent = null;
+        heldObject = null; 
+
     }
     
     private void DropObjectOnBoard()
     {
-        //re-enable collision with player
+        GameController.Instance.ActiveLerFText(false);
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        heldObject.layer = 8; //object assigned back to default layer
+
+        heldObject.layer = 8; 
         if(heldObject.transform.childCount != 0)
         {
             heldObject.transform.GetChild(0).gameObject.layer = 8;
             heldObject.transform.GetChild(1).gameObject.layer = 8;
         }
         heldObjectRigidboby.isKinematic = true;
-        heldObject.transform.parent = objectsPlaceArea; //parent as board
+        heldObject.transform.parent = objectsPlaceArea; 
         heldObject.transform.localPosition = new Vector3(0, heldObject.transform.localPosition.y, heldObject.transform.localPosition.z); 
         heldObject.transform.localEulerAngles = Vector3.zero;
         heldObject.GetComponent<BoardObject>().SetIsOnBoard(true);
-
-        heldObject = null; //undefine game object
-
-        // GetChildInBoard();
+        heldObject = null; 
     }
 
     private void RotateObject()
     {
-        if (Input.GetKey(KeyCode.R))//hold R key to rotate, change this to whatever key you want
+        if (Input.GetKey(KeyCode.R))
         {
             GameController.Instance.ShowLens(true);
 
-            canDrop = false; //make sure throwing can't occur during rotating
-
-            //disable player being able to look around
-
+            canDrop = false;
             cameraMovement.sensitivity = 0f;
             movement.sensitivity = 0f;
 
             float XaxisRotation = Input.GetAxis("Mouse X") * rotationSensitivity;
             float YaxisRotation = Input.GetAxis("Mouse Y") * rotationSensitivity;
-            //rotate the object depending on mouse X-Y Axis
+
             heldObject.transform.Rotate(Vector3.down, XaxisRotation);
             heldObject.transform.Rotate(Vector3.forward, YaxisRotation);
         }
@@ -237,7 +218,6 @@ public class PickUp : MonoBehaviour
         {
             GameController.Instance.ShowLens(false);
 
-            //re-enable player being able to look around
             cameraMovement.sensitivity = initialCamSensivity;
             movement.sensitivity = initialMoveSensivity;
             canDrop = true;
@@ -246,16 +226,15 @@ public class PickUp : MonoBehaviour
 
     private void MoveObject()
     {
-        //keep object position the same as the holdPosition position
         heldObject.transform.position = holdPos.transform.position;
     }
 
     private void ThrowObject()
     {
         SoundManager.Instance.PlayThrowSound(heldObject.transform.position, 1);
-
-        //same as drop function, but add force to object before undefining it
+        GameController.Instance.ActiveLerFText(false);
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+
         heldObject.layer = 8;
         if(heldObject.transform.childCount != 0)
         {
@@ -267,18 +246,6 @@ public class PickUp : MonoBehaviour
         heldObjectRigidboby.AddForce(transform.forward * throwForce);
         heldObject = null;
     }
-
-    /* private void ResetObjectRotation()
-    {
-        Vector3 actualRotation = heldObject.transform.eulerAngles;
-
-        heldObject.transform.localEulerAngles = new Vector3(Mathf.Lerp(actualRotation.x, 0, 0.2f), Mathf.Lerp(actualRotation.y, 90f, 0.2f), Mathf.Lerp(actualRotation.y, 0, 0.2f));
-    } */
-
-    /* private BoardObjectSO GetHeldObjectBoardObjectSO()
-    {
-        return heldObject.GetComponent<BoardObject>().GetBoardObjectSO();
-    } */
 
     public void SetRotationSensivitySlider()
     {

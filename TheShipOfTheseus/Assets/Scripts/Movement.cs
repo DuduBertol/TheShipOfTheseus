@@ -56,4 +56,9 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

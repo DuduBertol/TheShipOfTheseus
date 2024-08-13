@@ -16,10 +16,11 @@ public class GameController : MonoBehaviour
     public Volume globalVolume;
     [SerializeField] private int objectsInBoardAmount;
     [SerializeField] private PickUp pickUp;
-    // [SerializeField] private Transform selectionCursor;
+    [SerializeField] private Transform selectionCursor;
     [SerializeField] private Transform lerFText;
     
     [Header("In-Game Events")]
+    [SerializeField] private Transform initialTipText;
     [SerializeField] private Transform roofToDestroy;
     [SerializeField] private Transform roofToActive;
     [SerializeField] private Transform keyPosToSpawn;
@@ -40,30 +41,15 @@ public class GameController : MonoBehaviour
     private bool hasPlayedEventFive;
     private bool hasPlayedEventSeven;
     private bool hasPlayedEventNine;
-    // private bool hasKey;
 
     private void Awake() 
     {
         Instance = this;    
     }
-    private void Start() 
-    {  
-        // StartCutscene();
-    }
 
     private void Update() 
     {
-        if(!IsGameStarted)
-        {
-            // UpdateCutscene();
-        }
-
-        /* if(Input.GetKeyDown(KeyCode.P))
-        {
-            ShakeScreen();
-        } */
-
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             IsGamePaused = !IsGamePaused;
             TogglePausePanel(IsGamePaused);
@@ -74,27 +60,27 @@ public class GameController : MonoBehaviour
     {
         objectsInBoardAmount++;
         
-        if(objectsInBoardAmount == 1 && !hasPlayedEventOne) // DESTROY PLANKS
+        if(objectsInBoardAmount == 1 && !hasPlayedEventOne)
         {
             hasPlayedEventOne = true;
             PlayEventOne();
         }
-        if(objectsInBoardAmount == 3 && !hasPlayedEventThree) // DESTROY PLANKS
+        if(objectsInBoardAmount == 3 && !hasPlayedEventThree) 
         {
             hasPlayedEventThree = true;
             PlayEventThree();
         }
-        if(objectsInBoardAmount == 5 && !hasPlayedEventFive) // DESTROY PLANKS
+        if(objectsInBoardAmount == 5 && !hasPlayedEventFive) 
         {
             hasPlayedEventFive = true;
             PlayEventFive();
         }
-        if(objectsInBoardAmount == 7 && !hasPlayedEventSeven) // DESTROY PLANKS
+        if(objectsInBoardAmount == 7 && !hasPlayedEventSeven)
         {
             hasPlayedEventSeven = true;
             PlayEventSeven();
         }
-        if(objectsInBoardAmount == 9 && !hasPlayedEventNine) // END GAME
+        if(objectsInBoardAmount == 9 && !hasPlayedEventNine)
         {
             hasPlayedEventNine = true;
             PlayEventNine();
@@ -127,22 +113,20 @@ public class GameController : MonoBehaviour
         roofToActive.gameObject.SetActive(true);
         ShakeScreen();
         
-        SoundManager.Instance.PlayWoodBreakSound(roofToActive.transform.position, 1f);
+        SoundManager.Instance.PlayWoodBreakSound(doorOne.transform.position, 3f);
     }
     private void PlayEventNine()
     {
         doorFour.gameObject.GetComponent<Animator>().Play("OpenDoor");
         doorFive.gameObject.GetComponent<Animator>().Play("OpenDoor");
-        // Transform keyTransfom = Instantiate(keyObject, keyPosToSpawn); 
-        // hasKey = true;
 
-        SoundManager.Instance.PlayLockerSound(roofToActive.transform.position, 1f);
+        SoundManager.Instance.PlayLockerSound(doorOne.transform.position, 3f);
         SoundManager.Instance.PlayDoorSound(doorOne.transform.position, 3f);
     }
 
     public void PlayFinalEvent()
     {
-        IsGamePaused = true; // GAME OVER
+        IsGamePaused = true; 
     }
 
     private void ShakeScreen()
@@ -159,9 +143,8 @@ public class GameController : MonoBehaviour
         lens.active = value;
     }
 
-    public void ToggleLerFText()
+    public void ActiveLerFText(bool value)
     {
-        bool value = !lerFText.gameObject.activeInHierarchy;
         lerFText.gameObject.SetActive(value);
     }
     public void TogglePausePanel(bool value)
@@ -174,6 +157,7 @@ public class GameController : MonoBehaviour
         if(!cardPanel.gameObject.activeInHierarchy)
         {
             cardPanel.gameObject.SetActive(true);
+            cardTextsList[cardNumber - 1].gameObject.SetActive(true);
         }
         else
         {
@@ -182,12 +166,14 @@ public class GameController : MonoBehaviour
         }
     }
 
-    /* public void ActiveSelectionCursor(bool value)
+    public void ActiveSelectionCursor(bool value)
     {
         selectionCursor.gameObject.SetActive(value);
-    } */
-    
+    }
 
-    
-
+    public void PlayIntialTipText()
+    {
+        initialTipText.gameObject.SetActive(true);
+        initialTipText.gameObject.GetComponent<Animator>().SetTrigger("InitialAnim");
+    }
 }

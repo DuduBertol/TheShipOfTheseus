@@ -15,7 +15,6 @@ public class BoardObject: MonoBehaviour
     {
         if(collider.gameObject.CompareTag("boardDrop"))
         {
-            // Debug.Log("Cubo bateu no quadro.E pode ser colocado.");
             canDropOnBoard = true;
             if(isMainObject)
             {
@@ -36,7 +35,6 @@ public class BoardObject: MonoBehaviour
     {
         if(collider.gameObject.CompareTag("boardDrop"))
         {
-            // Debug.Log("Cubo Vermelho saiu do quadro. E não pode ser colocado.");
             canDropOnBoard = false;
 
             if(isMainObject)
@@ -79,10 +77,4 @@ public class BoardObject: MonoBehaviour
     {
         return cardNumber;
     }
-
-    /* private void SetBoardAsParent(GameObject gameObject)
-    {
-        gameObject.transform.position = boardObjectSO.parentOnBoard.transform.position;
-    }  */
-
 }

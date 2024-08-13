@@ -57,6 +57,7 @@ public class PostProcessingController : MonoBehaviour
         if(elapsedTime >= cutsceneTimerMax)
         {
             GameController.Instance.IsGameStarted = true;
+            GameController.Instance.PlayIntialTipText();
 
             Destroy(photoAnimator.gameObject);
             photoObject.gameObject.SetActive(true);

@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class HeadbobSystem : MonoBehaviour
 {
-
-    [Range(0.001f, 0.01f)]
-    public float Amount = 0.002f;
-    [Range(1f, 30f)]
-
-    public float Frequency = 10.0f;
-
-    [Range(10f, 100f)]
-    public float Smooth = 10.0f;
+    [Range(0.001f, 0.01f)] public float Amount = 0.002f;
+    [Range(1f, 30f)] public float Frequency = 10.0f;
+    [Range(10f, 100f)] public float Smooth = 10.0f;
 
     private float footstepTime;
     private float footstepTimeMax = 0.5f;
-
-    Vector3 StartPos;
+    private Vector3 StartPos;
 
     void Start()
     {
