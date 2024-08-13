@@ -7,6 +7,8 @@ public class BoardObject: MonoBehaviour
     [SerializeField] private BoardObjectSO boardObjectSO;
     [SerializeField] private bool isMainObject;
     [SerializeField] private bool isOnBoard;
+    [SerializeField] private bool isCard;
+    [SerializeField] private int cardNumber;
     private bool canDropOnBoard;
 
     private void OnTriggerEnter(Collider collider) 
@@ -68,6 +70,14 @@ public class BoardObject: MonoBehaviour
     public void SetIsOnBoard(bool value)
     {
         isOnBoard = value;
+    }
+    public bool GetIsCard()
+    {
+        return isCard;
+    }
+    public int GetCardNumber()
+    {
+        return cardNumber;
     }
 
     /* private void SetBoardAsParent(GameObject gameObject)

@@ -51,6 +51,8 @@ MonoBehaviour:
   boardObjectSO: {fileID: 11400000, guid: 790a42e8dfa95024ab8d7161d2160be3, type: 2}
   isMainObject: 1
   isOnBoard: 0
+  isCard: 1
+  cardNumber: 3
 --- !u!65 &8927238181921110355
 BoxCollider:
   m_ObjectHideFlags: 0

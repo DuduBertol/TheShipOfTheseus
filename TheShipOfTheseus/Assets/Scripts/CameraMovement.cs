@@ -12,6 +12,8 @@ public class CameraMovement : MonoBehaviour {
     }
     [Range(0.1f, 9f)][SerializeField] public float sensitivity = 2f;
     [Range(0f, 90f)][SerializeField] float yRotationLimit = 88f;
+
+    private float startSensivity;
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
 
     Vector2 rotation = Vector2.zero;
@@ -33,7 +35,19 @@ public class CameraMovement : MonoBehaviour {
     {
         HandleMovement();
 
-
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(!Cursor.visible)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;    
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;    
+            }
+        }
     }
 
     private void HandleMovement()

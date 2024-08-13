@@ -4,34 +4,35 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
-    /* public event EventHandler<OnAnyObjectDroppedOnBoardEventArgs> OnAnyObjectDroppedOnBoard;
-    public class OnAnyObjectDroppedOnBoardEventArgs: EventArgs
-    {
-        public BoardObject boardObject;
-    } */
-
+    [Header("Player")]
     public GameObject player;
     public Transform holdPos;
     public Transform objectsPlaceArea;
     public float pickUpRange = 5f;
     public float throwForce = 500f;
     
+    [Header("Sensivity")]
     [Range(0.1f, 9f)][SerializeField] private float rotationSensitivity = 1f;
+    [SerializeField] private Slider sensivitySlider;
+    [SerializeField] private Slider rotationSensivitySlider;
+
+    [Header("Others")]
     [SerializeField] private LayerMask playerLayer;
-    
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private Movement movement;
 
+
     
     private GameObject heldObject;
-    // private BoardObjectSO boardObjectSO;
     private Rigidbody heldObjectRigidboby;
     private bool canDrop = true;
     private float initialCamSensivity;
     private float initialMoveSensivity;
+    private float initialRotationSensivity;
     private int layerNumber;
 
 
@@ -43,6 +44,10 @@ public class PickUp : MonoBehaviour
 
         initialCamSensivity = cameraMovement.sensitivity;
         initialMoveSensivity = movement.sensitivity;
+        initialRotationSensivity = rotationSensitivity;
+
+        sensivitySlider.value = initialMoveSensivity;
+        rotationSensivitySlider.value = initialRotationSensivity;
     }
 
     private void Update()
@@ -58,6 +63,8 @@ public class PickUp : MonoBehaviour
                     //make sure pickup tag is attached
                     if (hit.transform.gameObject.tag == "canPickUp")
                     {
+                        // GameController.Instance.ActiveSelectionCursor(true);
+
                         if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
                         {
                             hit.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(false);
@@ -80,6 +87,8 @@ public class PickUp : MonoBehaviour
             }
             else
             {
+                // GameController.Instance.ActiveSelectionCursor(false);
+
                 if(canDrop == true)
                 {
                     //StopClipping(); //prevents object from clipping through walls
@@ -108,6 +117,16 @@ public class PickUp : MonoBehaviour
 
         if (heldObject != null) //if player is holding object
         {
+            if(heldObject.GetComponent<BoardObject>().GetIsCard())
+            {
+                GameController.Instance.ToggleLerFText();
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    int cardNumber = heldObject.GetComponent<BoardObject>().GetCardNumber();
+                    GameController.Instance.ActiveCard(cardNumber);
+                }
+            }
+
             MoveObject(); //keep object position at holdPos
             RotateObject();
             if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
@@ -256,9 +275,20 @@ public class PickUp : MonoBehaviour
         heldObject.transform.localEulerAngles = new Vector3(Mathf.Lerp(actualRotation.x, 0, 0.2f), Mathf.Lerp(actualRotation.y, 90f, 0.2f), Mathf.Lerp(actualRotation.y, 0, 0.2f));
     } */
 
-    private BoardObjectSO GetHeldObjectBoardObjectSO()
+    /* private BoardObjectSO GetHeldObjectBoardObjectSO()
     {
         return heldObject.GetComponent<BoardObject>().GetBoardObjectSO();
+    } */
+
+    public void SetRotationSensivitySlider()
+    {
+        rotationSensitivity = rotationSensivitySlider.value * initialRotationSensivity;
+    }
+
+    public void SetSensivitySlider()
+    {
+        cameraMovement.sensitivity = sensivitySlider.value * initialCamSensivity;
+        movement.sensitivity = sensivitySlider.value * initialMoveSensivity;
     }
 
     

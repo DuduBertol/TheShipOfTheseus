@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -44,5 +45,15 @@ public class Movement : MonoBehaviour
         
         characterController.Move(playerInputs * Time.deltaTime * playerSpeed);
 
+    }
+
+    private void OnTriggerEnter(Collider collider) 
+    {   
+        if(collider.gameObject.CompareTag("FinalDoor"))
+        {
+            GameController.Instance.PlayFinalEvent();
+            
+            SceneManager.LoadScene(2);
+        }
     }
 }

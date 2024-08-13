@@ -10,11 +10,16 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance {get; private set;}
 
+    [Header("Game")]
     public bool IsGameStarted;
     public bool IsGamePaused;
     public Volume globalVolume;
     [SerializeField] private int objectsInBoardAmount;
     [SerializeField] private PickUp pickUp;
+    // [SerializeField] private Transform selectionCursor;
+    [SerializeField] private Transform lerFText;
+    
+    [Header("In-Game Events")]
     [SerializeField] private Transform roofToDestroy;
     [SerializeField] private Transform roofToActive;
     [SerializeField] private Transform keyPosToSpawn;
@@ -24,6 +29,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private Transform doorThree;
     [SerializeField] private Transform doorFour;
     [SerializeField] private Transform doorFive;
+    
+    [Header("Pause")]
+    [SerializeField] private Transform pausePanel;
+    [SerializeField] private Transform cardPanel;
+    [SerializeField] private List<Transform> cardTextsList;
 
     private bool hasPlayedEventOne;
     private bool hasPlayedEventThree;
@@ -48,9 +58,15 @@ public class GameController : MonoBehaviour
             // UpdateCutscene();
         }
 
-        if(Input.GetKeyDown(KeyCode.P))
+        /* if(Input.GetKeyDown(KeyCode.P))
         {
             ShakeScreen();
+        } */
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            IsGamePaused = !IsGamePaused;
+            TogglePausePanel(IsGamePaused);
         }
     }
 
@@ -115,20 +131,17 @@ public class GameController : MonoBehaviour
     }
     private void PlayEventNine()
     {
-        Transform keyTransfom = Instantiate(keyObject, keyPosToSpawn); 
+        doorFour.gameObject.GetComponent<Animator>().Play("OpenDoor");
+        doorFive.gameObject.GetComponent<Animator>().Play("OpenDoor");
+        // Transform keyTransfom = Instantiate(keyObject, keyPosToSpawn); 
         // hasKey = true;
 
-        SoundManager.Instance.PlayKeySound(roofToActive.transform.position, 1f);
+        SoundManager.Instance.PlayLockerSound(roofToActive.transform.position, 1f);
+        SoundManager.Instance.PlayDoorSound(doorOne.transform.position, 3f);
     }
 
     public void PlayFinalEvent()
     {
-        doorFour.gameObject.GetComponent<Animator>().Play("OpenDoor");
-        doorFive.gameObject.GetComponent<Animator>().Play("OpenDoor");
-
-        SoundManager.Instance.PlayLockerSound(roofToActive.transform.position, 1f);
-        SoundManager.Instance.PlayDoorSound(roofToActive.transform.position, 2f);
-
         IsGamePaused = true; // GAME OVER
     }
 
@@ -145,6 +158,35 @@ public class GameController : MonoBehaviour
 
         lens.active = value;
     }
+
+    public void ToggleLerFText()
+    {
+        bool value = !lerFText.gameObject.activeInHierarchy;
+        lerFText.gameObject.SetActive(value);
+    }
+    public void TogglePausePanel(bool value)
+    {
+        pausePanel.gameObject.SetActive(value);
+    }
+
+    public void ActiveCard(int cardNumber)
+    {
+        if(!cardPanel.gameObject.activeInHierarchy)
+        {
+            cardPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            cardPanel.gameObject.SetActive(false);
+            cardTextsList[cardNumber - 1].gameObject.SetActive(false);
+        }
+    }
+
+    /* public void ActiveSelectionCursor(bool value)
+    {
+        selectionCursor.gameObject.SetActive(value);
+    } */
+    
 
     
 

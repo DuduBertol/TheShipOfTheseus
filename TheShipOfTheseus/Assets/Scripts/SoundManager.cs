@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
     [SerializeField] private AudioClipsRefsSO audioClipsRefsSO;
-    [Range(1f, 10f)][SerializeField] private float volume; 
+    [Range(1f, 30f)][SerializeField] private float volume;
+    [SerializeField] private Slider volumeSlider;
+
+    private float startVolume;
 
     private void Awake() 
     {
-        Instance = this;     
+        Instance = this;   
+    }
+
+    private void Start() 
+    {
+        startVolume = volume;
+        volumeSlider.value = volume;      
     }
 
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume)
@@ -70,9 +80,10 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipsRefsSO.woodBreak, position, volumeMultiplier * volume);
     }
 
-    /* public void PlayAmbienceMusic(Vector3 position, float volumeMultiplier)
+    public void SetVolumeSlider()
     {
-        PlaySound(audioClipsRefsSO.musicAmbience, position, volumeMultiplier * volume);
-    } */
+        volume = volumeSlider.value * startVolume;
+    }
+
 
 }
