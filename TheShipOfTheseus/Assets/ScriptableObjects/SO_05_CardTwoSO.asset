@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da32beb673575604ca04441c6bd81eee, type: 3}
+  m_Name: SO_05_CardTwoSO
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8879838906017901575, guid: 76c2b683c483280428cc89d05376160a, type: 3}
