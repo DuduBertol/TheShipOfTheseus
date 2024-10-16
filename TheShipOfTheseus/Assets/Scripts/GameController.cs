@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
     public Volume globalVolume;
     [SerializeField] private int objectsInBoardAmount;
     [SerializeField] private PickUp pickUp;
-    [SerializeField] private Transform selectionCursor;
     [SerializeField] private Transform lerFText;
     
     [Header("In-Game Events")]
@@ -49,7 +48,7 @@ public class GameController : MonoBehaviour
 
     private void Update() 
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             IsGamePaused = !IsGamePaused;
             TogglePausePanel(IsGamePaused);
@@ -168,7 +167,7 @@ public class GameController : MonoBehaviour
 
     public void ActiveSelectionCursor(bool value)
     {
-        selectionCursor.gameObject.SetActive(value);
+        
     }
 
     public void PlayIntialTipText()

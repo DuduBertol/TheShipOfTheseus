@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickUp : MonoBehaviour
+public class PickUp_backup : MonoBehaviour
 {
     [Header("Player")]
     public GameObject player;
@@ -19,7 +19,6 @@ public class PickUp : MonoBehaviour
     [SerializeField] private Slider rotationSensivitySlider;
 
     [Header("Others")]
-    [SerializeField] private Transform selectionCursor;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private CameraMovement cameraMovement;
     [SerializeField] private Movement movement;
@@ -51,59 +50,85 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit hit; 
-        //Disparei um raycast
-
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
+        RaycastHit inGameHit;
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out inGameHit, pickUpRange, ~playerLayer))
         {
-            if(hit.transform.gameObject.tag == "canPickUp")
-            //Achei um objeto pegável
+            if(inGameHit.transform.gameObject.tag == "canPickUp" && GameController.Instance.IsGameStarted)
             {
-                selectionCursor.gameObject.SetActive(true);
+                GameController.Instance.ActiveSelectionCursor(true);
             }
             else
             {
-                selectionCursor.gameObject.SetActive(false);
+                GameController.Instance.ActiveSelectionCursor(false);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            if(heldObject == null)
-            //Tenho um objeto
+            if (heldObject == null) 
             {
-                if(hit.transform.gameObject.tag == "canPickUp")
-                //É um objeto pegável
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
                 {
-                    PickUpObject(hit.transform.gameObject);
-                    //Pego o objeto
+                    if (hit.transform.gameObject.tag == "canPickUp")
+                    {
+                        if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            hit.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(false);
+                            GameController.Instance.DecreaseObjectsInBoardAmount();
+                        }
+                        if(hit.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            SoundManager.Instance.PlayPaperSound(hit.transform.position, 1);
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlayPinSound(hit.transform.position, 1);
+                        }
+                        PickUpObject(hit.transform.gameObject);
+                    }
                 }
             }
             else
             {
                 if(canDrop == true)
-                //Ele pode ser largado
                 {
-                    DropObject();
+                    if(heldObject.GetComponent<BoardObject>().GetCanDropOnBoard()) 
+                    { 
+                        if(!heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsOnBoard() && heldObject.transform.gameObject.GetComponent<BoardObject>().GetIsMainObject())
+                        {
+                            heldObject.transform.gameObject.GetComponent<BoardObject>().SetIsOnBoard(true);
+                            GameController.Instance.IncreaseObjectsInBoardAmount();
+
+                            SoundManager.Instance.PlayPaperSound(heldObject.transform.position, 1);
+                        }
+                        else
+                        {
+                            SoundManager.Instance.PlayPinSound(heldObject.transform.position, 1);
+                        }
+                        DropObjectOnBoard();
+                    }
+                    else 
+                    { 
+                        DropObject();
+                    }
                 }
             }
         }
 
-
         if (heldObject != null) 
         {
-            /* if(heldObject.GetComponent<BoardObject>().GetIsCard())
+            if(heldObject.GetComponent<BoardObject>().GetIsCard())
             {
                 if(Input.GetKeyDown(KeyCode.F))
                 {
                     int cardNumber = heldObject.GetComponent<BoardObject>().GetCardNumber();
                     GameController.Instance.ActiveCard(cardNumber);
                 }
-            } */
+            }
 
             MoveObject(); 
             RotateObject();
-            
             if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true)
             {
                 ThrowObject();
@@ -112,7 +137,6 @@ public class PickUp : MonoBehaviour
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.green);
     }
-
 
     private void PickUpObject(GameObject pickUpObj)
     {
@@ -155,7 +179,7 @@ public class PickUp : MonoBehaviour
 
     }
     
-    /* private void DropObjectOnBoard()
+    private void DropObjectOnBoard()
     {
         GameController.Instance.ActiveLerFText(false);
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
@@ -172,7 +196,7 @@ public class PickUp : MonoBehaviour
         heldObject.transform.localEulerAngles = Vector3.zero;
         heldObject.GetComponent<BoardObject>().SetIsOnBoard(true);
         heldObject = null; 
-    } */
+    }
 
     private void RotateObject()
     {
