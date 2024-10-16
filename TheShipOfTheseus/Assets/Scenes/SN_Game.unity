@@ -8384,7 +8384,6 @@ MonoBehaviour:
   globalVolume: {fileID: 1160234426}
   objectsInBoardAmount: 0
   pickUp: {fileID: 961739755}
-  selectionCursor: {fileID: 2104351724}
   lerFText: {fileID: 142867465}
   initialTipText: {fileID: 873573961}
   roofToDestroy: {fileID: 1434914569}
@@ -15803,6 +15802,7 @@ MonoBehaviour:
   rotationSensitivity: 2
   sensivitySlider: {fileID: 464696175}
   rotationSensivitySlider: {fileID: 523513651}
+  selectionCursor: {fileID: 2104351724}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
