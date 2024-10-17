@@ -5,10 +5,10 @@ using UnityEngine;
 public class S_PlayerPickUp : MonoBehaviour
 {
     public float pickUpRange;
+    public Transform playerHoldPos;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private GameObject heldObject;
 
-    
     private void Update() 
     {
         RaycastHit hit; 
@@ -21,6 +21,17 @@ public class S_PlayerPickUp : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Interact!");
+
+                    if(heldObject == null)
+                    {
+                        heldObject = interactableObject.gameObject;
+                        interactableObject.SetParent(playerHoldPos);
+                    }
+                    else
+                    {
+                        heldObject = null;
+                        interactableObject.ClearParent();
+                    }
                 }
             }
         }
