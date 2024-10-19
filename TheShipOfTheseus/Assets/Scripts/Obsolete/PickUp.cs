@@ -39,7 +39,7 @@ public class PickUp : MonoBehaviour
     {
         cameraMovement.enabled = true;
 
-        layerNumber = LayerMask.NameToLayer("holdLayer");
+        layerNumber = LayerMask.NameToLayer("holdLayer"); 
 
         initialCamSensivity = cameraMovement.sensitivity;
         initialMoveSensivity = movement.sensitivity;
