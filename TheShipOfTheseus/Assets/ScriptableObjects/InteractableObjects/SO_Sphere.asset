@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8eaa00b408f3a409f59f5b609ee00c, type: 3}
-  m_Name: SO_Bottle
+  m_Name: SO_Sphere
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5861389074253821735, guid: 2fa09f7bae6076a4a925d65bf5e8aad6, type: 3}
+  prefab: {fileID: 4326166123858194125, guid: 343b0b7580d447f4cb436d1498f91b00, type: 3}
