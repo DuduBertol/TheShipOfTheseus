@@ -69,6 +69,7 @@ Transform:
   m_Children:
   - {fileID: 6232303842666138424}
   - {fileID: 5896848666152353020}
+  - {fileID: 2102232012591144245}
   - {fileID: 1995210235652404453}
   m_Father: {fileID: 6950370421729413137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -756,6 +757,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3932142475354731003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102232012591144245}
+  m_Layer: 0
+  m_Name: PlayerTwinPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2102232012591144245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932142475354731003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.919, y: -0.518, z: 1.216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4703364925551549961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4666748449484529729
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,12 +834,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpRange: 2.5
   playerHoldPos: {fileID: 5896848666152353020}
+  playerTwinPos: {fileID: 2102232012591144245}
   objectViewState: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
   playerCollider: {fileID: 221900886830624931}
   heldObject: {fileID: 0}
+  highlightObject: {fileID: 0}
 --- !u!1 &5376076750461079524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1112,6 @@ MonoBehaviour:
   correctSprite: {fileID: 21300000, guid: a5f9f676a0cb7714680a2fd91ba8f888, type: 3}
   wrongSprite: {fileID: 21300000, guid: a41a18a16914451439055637eecc57bb, type: 3}
   invisibleColor: {r: 1, g: 1, b: 1, a: 0}
-  correctColor: {r: 0.09066844, g: 1, b: 0, a: 1}
-  wrongColor: {r: 1, g: 0, b: 0.07135868, a: 1}
+  correctColor: {r: 0.7874068, g: 1, b: 0.7688679, a: 1}
+  wrongColor: {r: 1, g: 0.7688679, b: 0.7688679, a: 1}
   playerPickUp: {fileID: 8839572302749528449}
