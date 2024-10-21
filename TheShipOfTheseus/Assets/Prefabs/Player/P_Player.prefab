@@ -31,9 +31,39 @@ Transform:
   m_Children:
   - {fileID: 2092550667088059799}
   - {fileID: 6950370421729413137}
-  - {fileID: 1268134370560801881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &722590089719261696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8878343960421195367}
+  m_Layer: 0
+  m_Name: PlayerInspectPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8878343960421195367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722590089719261696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3834748, y: 0.8198063, z: -0.3615492, w: 0.22393553}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4703364925551549961}
+  m_LocalEulerAnglesHint: {x: 49.867, y: 171.985, z: 46.406}
 --- !u!1 &783360677685214623
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +99,7 @@ Transform:
   m_Children:
   - {fileID: 6232303842666138424}
   - {fileID: 5896848666152353020}
+  - {fileID: 8878343960421195367}
   - {fileID: 2102232012591144245}
   - {fileID: 1995210235652404453}
   m_Father: {fileID: 6950370421729413137}
@@ -612,7 +643,7 @@ RectTransform:
   - {fileID: 1657576694149656996}
   - {fileID: 5599309333566033434}
   - {fileID: 7530091284433835725}
-  m_Father: {fileID: 3490429067209135116}
+  m_Father: {fileID: 6950370421729413137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -654,10 +685,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -832,10 +863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcb8a765ac6e8d4898e4d20fe0317ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerActionState: 2
+  objectViewState: 0
   pickUpRange: 2.5
   playerHoldPos: {fileID: 5896848666152353020}
   playerTwinPos: {fileID: 2102232012591144245}
-  objectViewState: 0
+  playerInspectPos: {fileID: 8878343960421195367}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -873,6 +906,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4703364925551549961}
+  - {fileID: 1268134370560801881}
   m_Father: {fileID: 3490429067209135116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1726090922748597679

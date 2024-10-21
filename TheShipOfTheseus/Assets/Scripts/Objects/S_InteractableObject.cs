@@ -63,6 +63,14 @@ public class S_InteractableObject : MonoBehaviour
         Unselected();
     }
 
+    public void Inspect()
+    {
+        originalObject.transform.position = playerPickUp.playerInspectPos.position;
+        originalObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        
+        translucedObject.SetActive(false);
+    }
+
     public void SetOutline(bool value)
     {
         outline.enabled = value;

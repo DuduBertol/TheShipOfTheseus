@@ -1,13 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class S_PlayerPickUp : MonoBehaviour
 {
-    public float pickUpRange;
-    public Transform playerHoldPos;
-    public Transform playerTwinPos;
+    public event EventHandler <OnStateChangedEventArgs> OnStateChanged;
+    public class OnStateChangedEventArgs: EventArgs
+    {
+        public PlayerActionState state;
+    }
+
+    public enum PlayerActionState
+    {
+        Interact,
+        Inspect,
+        AnyState
+    }
+    public PlayerActionState playerActionState;
 
     public enum ObjectViewState
     {
@@ -16,8 +27,12 @@ public class S_PlayerPickUp : MonoBehaviour
         View_NoHold,
         NoView_NoHold
     }
-
     public ObjectViewState objectViewState;
+
+    public float pickUpRange;
+    public Transform playerHoldPos;
+    public Transform playerTwinPos;
+    public Transform playerInspectPos;
 
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Collider playerCollider;
@@ -27,11 +42,39 @@ public class S_PlayerPickUp : MonoBehaviour
     private void Start() 
     {
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+        GameInput.Instance.OnInspectAction += GameInput_OnInspectAction;
+    }
+
+    private void GameInput_OnInspectAction(object sender, EventArgs e) // Mouse Esquerdo
+    {
+        Debug.Log("Inspect!"); 
+
+
+        if(playerActionState == PlayerActionState.AnyState) return;
+            //Não tenho objeto - Logo Any State
+
+        else if(playerActionState == PlayerActionState.Interact)
+        //Tenho objeto e estou em Interact, logo entrar em Inspect
+        {
+            ChangeState(PlayerActionState.Inspect);
+            heldObject.GetComponent<S_InteractableObject>().Inspect();
+        }
+
+
+        else if(playerActionState == PlayerActionState.Inspect)
+        //Tenho objeto e estou em Inspect, logo voltar
+        {
+            ChangeState(PlayerActionState.Interact);
+            heldObject.GetComponent<S_InteractableObject>().PickUp();
+        }
+            
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e) // Mouse Esquerdo
     {
-        Debug.Log("Interact!");
+        if(playerActionState == PlayerActionState.Inspect) return;
+
+        Debug.Log("Interact!");      
 
         RaycastHit hit; 
         //Disparei um raycast
@@ -49,6 +92,8 @@ public class S_PlayerPickUp : MonoBehaviour
                     interactableObject.PickUp();
                     interactableObject.SetParent(playerHoldPos);
                     Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), true);
+
+                    ChangeState(PlayerActionState.Interact);
                 }
                 else
                 //Dropei o objeto 
@@ -57,6 +102,8 @@ public class S_PlayerPickUp : MonoBehaviour
                     interactableObject.Drop();
                     interactableObject.ClearParent();
                     Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
+
+                    ChangeState(PlayerActionState.AnyState);
                 }
             }
         }
@@ -121,5 +168,15 @@ public class S_PlayerPickUp : MonoBehaviour
     public ObjectViewState GetObjectViewState()
     {
         return objectViewState;
+    }
+
+    public void ChangeState(PlayerActionState state)
+    {
+        playerActionState = state;
+
+        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs
+        {
+            state = state
+        });
     }
 }
