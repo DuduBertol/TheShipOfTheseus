@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class S_PlayerCam : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    public static S_PlayerCam Instance {get; private set;}
 
+    public float sensibility;
+    public float rotationSens;
+    
     public Transform orientation;
+
+    public bool isFreezed;
 
     
     private float xRotation;
     private float yRotation;
 
+
+
+    private void Awake() 
+    {
+        Instance = this;    
+    }
 
     private void Start() 
     {
@@ -22,9 +32,21 @@ public class S_PlayerCam : MonoBehaviour
 
     private void Update() 
     {
+        if(!isFreezed)
+        {
+            HandleMouseMovement();
+        }
+    }
+
+    private void HandleMouseMovement()
+    {
+        Vector2 mouseVector = GameInput.Instance.GetMouseMovementVectorNormalizedPlayer(); 
+            //ARRUMAR ESSA BOSTA
+            //VOLTA PRO CODIGO ANTIGO
+
         // get mouse input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = mouseVector.x * Time.deltaTime * sensibility;
+        float mouseY = mouseVector.y * Time.deltaTime * sensibility;
 
         yRotation += mouseX;
 

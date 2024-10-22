@@ -43,8 +43,24 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
         GameInput.Instance.OnInspectAction += GameInput_OnInspectAction;
+        GameInput.Instance.OnRotationAction += GameInput_OnRotationAction;
+        GameInput.Instance.OnRotationCanceledAction += GameInput_OnRotationCanceledAction;
     }
 
+    private void GameInput_OnRotationCanceledAction(object sender, EventArgs e) // Mouse Esquerdo Hold
+    {  
+        if(playerActionState != PlayerActionState.Inspect) return;
+        
+        Debug.Log("Rotation Canceled!"); 
+        RotateCanceled();
+    }
+    private void GameInput_OnRotationAction(object sender, EventArgs e) // Mouse Esquerdo Hold
+    { 
+        if(playerActionState != PlayerActionState.Inspect) return;
+
+        Debug.Log("Rotation!"); 
+        Rotate();
+    }
     private void GameInput_OnInspectAction(object sender, EventArgs e) // Mouse Esquerdo
     {
         Debug.Log("Inspect!"); 
@@ -57,7 +73,11 @@ public class S_PlayerPickUp : MonoBehaviour
         //Tenho objeto e estou em Interact, logo entrar em Inspect
         {
             ChangeState(PlayerActionState.Inspect);
+            
             heldObject.GetComponent<S_InteractableObject>().Inspect();
+            
+            S_PlayerCam.Instance.isFreezed = true;
+            S_PlayerMovement.Instance.isFreezed = true;
         }
 
 
@@ -65,50 +85,21 @@ public class S_PlayerPickUp : MonoBehaviour
         //Tenho objeto e estou em Inspect, logo voltar
         {
             ChangeState(PlayerActionState.Interact);
-            heldObject.GetComponent<S_InteractableObject>().PickUp();
+            
+            heldObject.GetComponent<S_InteractableObject>().BackInspect();
+
+            S_PlayerCam.Instance.isFreezed = false;
+            S_PlayerMovement.Instance.isFreezed = false;
         }
             
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e) // Mouse Esquerdo
     {
-        if(playerActionState == PlayerActionState.Inspect) return;
-
-        Debug.Log("Interact!");      
-
-        RaycastHit hit; 
-        //Disparei um raycast
-
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
+        if(playerActionState == PlayerActionState.Interact || playerActionState == PlayerActionState.AnyState)
         {
-            if(hit.transform.gameObject.TryGetComponent(out S_InteractableObject interactableObject)) 
-            // Encontrei um objeto interagível
-            {
-                if(heldObject == null)
-                //Peguei o objeto
-                {
-                    heldObject = interactableObject.gameObject;
-                    
-                    interactableObject.PickUp();
-                    interactableObject.SetParent(playerHoldPos);
-                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), true);
-
-                    ChangeState(PlayerActionState.Interact);
-                }
-                else
-                //Dropei o objeto 
-                {
-                    heldObject = null;
-                    interactableObject.Drop();
-                    interactableObject.ClearParent();
-                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
-
-                    ChangeState(PlayerActionState.AnyState);
-                }
-            }
+            Interact();
         }
-
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
     }
 
     private void Update() 
@@ -178,5 +169,53 @@ public class S_PlayerPickUp : MonoBehaviour
         {
             state = state
         });
+    }
+
+    private void Interact()
+    {
+        Debug.Log("Interact!");      
+
+        RaycastHit hit; 
+        //Disparei um raycast
+
+        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
+        {
+            if(hit.transform.gameObject.TryGetComponent(out S_InteractableObject interactableObject)) 
+            // Encontrei um objeto interagível
+            {
+                if(heldObject == null)
+                //Peguei o objeto
+                {
+                    heldObject = interactableObject.gameObject;
+                    
+                    interactableObject.PickUp();
+                    interactableObject.SetParent(playerHoldPos);
+                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), true);
+
+                    ChangeState(PlayerActionState.Interact);
+                }
+                else
+                //Dropei o objeto 
+                {
+                    heldObject = null;
+                    interactableObject.Drop();
+                    interactableObject.ClearParent();
+                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
+
+                    ChangeState(PlayerActionState.AnyState);
+                }
+            }
+        }
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
+    }
+
+    private void Rotate()
+    {
+        StartCoroutine(heldObject.GetComponent<S_InteractableObject>().Rotate());
+    }
+    private void RotateCanceled()
+    {
+        heldObject.GetComponent<S_InteractableObject>().SetRotateBool(false);
     }
 }

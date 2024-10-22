@@ -416,7 +416,6 @@ MonoBehaviour:
     type: 2}
   originalObject: {fileID: 258406446945664569}
   translucedObject: {fileID: 1527169708136280710}
-  projectionObject: {fileID: 0}
   rb: {fileID: 0}
   col: {fileID: 0}
   thisParent: {fileID: 0}
