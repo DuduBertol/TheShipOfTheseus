@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class S_PlayerMovement : MonoBehaviour
 {
+
+    public static S_PlayerMovement Instance {get; private set;}
+
     [Header("Movement")]
     public float moveSpeed;
 
@@ -11,12 +14,19 @@ public class S_PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
+    public bool isFreezed;
+
     private float horizontalInput;
     private float verticalInput;
 
     private Vector3 moveDirection;
 
     private Rigidbody rb;
+
+    private void Awake() 
+    {
+        Instance = this;    
+    }
 
     private void Start() 
     {
@@ -27,14 +37,16 @@ public class S_PlayerMovement : MonoBehaviour
 
     private void Update() 
     {
-
         MyInput();    
         SpeedControl();
     }
 
     private void FixedUpdate() 
     {
-        MovePlayer();    
+        if(!isFreezed)
+        {
+            MovePlayer();    
+        }
     }
 
     private void MyInput()
