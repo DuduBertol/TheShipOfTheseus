@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3490429067209135116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 2092550667088059799}
   - {fileID: 6950370421729413137}
+  - {fileID: 2488398798548055368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &722590089719261696
@@ -42,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8878343960421195367}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerInspectPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +78,7 @@ GameObject:
   - component: {fileID: 3766370297596655808}
   - component: {fileID: 1664252480554628319}
   - component: {fileID: 456853549174297082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +188,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -235,7 +236,7 @@ GameObject:
   - component: {fileID: 1657576694149656996}
   - component: {fileID: 1047892541643103845}
   - component: {fileID: 7156796044134174026}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +312,7 @@ GameObject:
   - component: {fileID: 1164545127744713128}
   - component: {fileID: 8497480696356016240}
   - component: {fileID: 221900886830624931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +418,7 @@ GameObject:
   - component: {fileID: 5599309333566033434}
   - component: {fileID: 5477905175551355349}
   - component: {fileID: 1021946474568559206}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: SelectionCursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +493,7 @@ GameObject:
   - component: {fileID: 1995210235652404453}
   - component: {fileID: 9206006344853938822}
   - component: {fileID: 6441118286425836257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HoldObjectCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +622,7 @@ GameObject:
   - component: {fileID: 3886746430848926756}
   - component: {fileID: 7857982248447238004}
   - component: {fileID: 881004902968370509}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +726,7 @@ GameObject:
   - component: {fileID: 7530091284433835725}
   - component: {fileID: 2913361904087207495}
   - component: {fileID: 4160718357344053577}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Drop Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -798,7 +799,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2102232012591144245}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerTwinPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6232303842666138424}
   - component: {fileID: 8839572302749528449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6950370421729413137}
   - component: {fileID: 1726090922748597679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858961412962738732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,6 +955,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092550667088059799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7966163623322643905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2488398798548055368}
+  - component: {fileID: 5694314048581444133}
+  m_Layer: 7
+  m_Name: Cutscene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2488398798548055368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966163623322643905}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3490429067209135116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5694314048581444133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966163623322643905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104f1ef24cce208409ee7e92f18abb08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerParentTransform: {fileID: 3490429067209135116}
+  playerCamTransform: {fileID: 4703364925551549961}
+  initialPlayerPos: {x: -2, y: 1, z: 3.5}
+  initialCamRot: {x: 16, y: 38, z: 0}
+  playerCanvas: {fileID: 1268134370560801881}
+  closeImageTimerMax: 2
+  openImageTimerMax: 2
+  closedVigneteValue: 1
+  openedVigneteValue: 0
+  closedColorValue: -10
+  openedColorValue: 0
 --- !u!1 &8178632312175720005
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +1021,7 @@ GameObject:
   - component: {fileID: 2092550667088059799}
   - component: {fileID: 5579418614535350364}
   - component: {fileID: 8356146861511123359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3996c84007e03694082bab390556e95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 4
   groundDrag: 5
   orientation: {fileID: 8859895061351736844}
   isFreezed: 0
@@ -1042,7 +1098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8859895061351736844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5896848666152353020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerHoldPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1105,7 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9206494322683552719}
   - component: {fileID: 8037816203173504842}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    public float Sensitivity {
+    /* public float Sensitivity {
         get { return sensitivity; }
         set { sensitivity = value; }
     }
@@ -52,5 +52,5 @@ public class CameraMovement : MonoBehaviour {
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
         transform.localRotation = yQuat;
-    }
+    } */
 }

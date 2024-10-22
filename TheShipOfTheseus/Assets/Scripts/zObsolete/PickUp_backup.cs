@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickUp_backup : MonoBehaviour
 {
-    [Header("Player")]
+    /* [Header("Player")]
     public GameObject player;
     public Transform holdPos;
     public Transform objectsPlaceArea;
@@ -257,6 +257,6 @@ public class PickUp_backup : MonoBehaviour
         cameraMovement.sensitivity = sensivitySlider.value * initialCamSensivity;
         movement.sensitivity = sensivitySlider.value * initialMoveSensivity;
     }
-
+ */
     
 }

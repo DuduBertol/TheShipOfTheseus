@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickUp : MonoBehaviour
 {
-    [Header("Player")]
+    /* [Header("Player")]
     public GameObject player;
     public Transform holdPos;
     public Transform objectsPlaceArea;
@@ -99,7 +99,7 @@ public class PickUp : MonoBehaviour
                     int cardNumber = heldObject.GetComponent<BoardObject>().GetCardNumber();
                     GameController.Instance.ActiveCard(cardNumber);
                 }
-            } */
+            } 
 
             MoveObject(); 
             RotateObject();
@@ -155,7 +155,7 @@ public class PickUp : MonoBehaviour
 
     }
     
-    /* private void DropObjectOnBoard()
+    private void DropObjectOnBoard()
     {
         GameController.Instance.ActiveLerFText(false);
         Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
@@ -172,7 +172,7 @@ public class PickUp : MonoBehaviour
         heldObject.transform.localEulerAngles = Vector3.zero;
         heldObject.GetComponent<BoardObject>().SetIsOnBoard(true);
         heldObject = null; 
-    } */
+    } 
 
     private void RotateObject()
     {
@@ -234,5 +234,5 @@ public class PickUp : MonoBehaviour
         movement.sensitivity = sensivitySlider.value * initialMoveSensivity;
     }
 
-    
+     */
 }
