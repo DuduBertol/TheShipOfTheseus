@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7537996136361584115}
   - component: {fileID: 4294633717491657502}
   m_Layer: 0
-  m_Name: P_SphereTest
+  m_Name: P_Marcelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,9 +184,13 @@ MonoBehaviour:
     type: 2}
   originalObject: {fileID: 5639374891605715658}
   translucedObject: {fileID: 1426304996748323503}
+  inverted: 0
+  rotation: {x: 0, y: 0}
+  rotateAllowed: 0
   rb: {fileID: 0}
   col: {fileID: 0}
-  thisParent: {fileID: 0}
+  interactPos: {x: 0, y: 0, z: 0}
+  interactRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &4294633717491657502
 MonoBehaviour:
   m_ObjectHideFlags: 0
