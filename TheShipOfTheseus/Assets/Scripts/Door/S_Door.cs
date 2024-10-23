@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class S_Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SO_KeyDoor keyDoorSO;
 
-    // Update is called once per frame
-    void Update()
+    public void OpenDoor()
     {
-        
+        Debug.Log("Tentei abrir porta!");
+
+        if(keyDoorSO.isUnlocked)
+        {
+            Debug.Log("Porta Aberta!");
+            Destroy(gameObject);
+        }
     }
 }

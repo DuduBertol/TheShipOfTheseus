@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class S_PlayerPickUp : MonoBehaviour
 {
+    public static S_PlayerPickUp Instance {get; private set;}
+
     public event EventHandler <OnStateChangedEventArgs> OnStateChanged;
     public class OnStateChangedEventArgs: EventArgs
     {
@@ -38,6 +40,11 @@ public class S_PlayerPickUp : MonoBehaviour
     [SerializeField] private Collider playerCollider;
     [SerializeField] private GameObject heldObject;
     [SerializeField] private GameObject highlightObject;
+
+    private void Awake() 
+    {
+        Instance = this;    
+    }
 
     private void Start() 
     {
@@ -98,7 +105,7 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         if(playerActionState == PlayerActionState.Interact || playerActionState == PlayerActionState.AnyState)
         {
-            Interact();
+            InteractAction();
         }
     }
 
@@ -171,7 +178,7 @@ public class S_PlayerPickUp : MonoBehaviour
         });
     }
 
-    private void Interact()
+    private void InteractAction()
     {
         Debug.Log("Interact!");      
 
@@ -183,7 +190,35 @@ public class S_PlayerPickUp : MonoBehaviour
             if(hit.transform.gameObject.TryGetComponent(out S_InteractableObject interactableObject)) 
             // Encontrei um objeto interagível
             {
-                if(heldObject == null)
+                Interact(interactableObject);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_Key key))
+            {
+                GetKey(key);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_Door door))
+            {
+                OpenDoor(door);
+            }
+
+
+        }
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
+    }
+
+    private void Rotate()
+    {
+        StartCoroutine(heldObject.GetComponent<S_InteractableObject>().Rotate());
+    }
+    private void RotateCanceled()
+    {
+        heldObject.GetComponent<S_InteractableObject>().SetRotateBool(false);
+    }
+
+    private void Interact(S_InteractableObject interactableObject)
+    {
+        if(heldObject == null)
                 //Peguei o objeto
                 {
                     heldObject = interactableObject.gameObject;
@@ -204,18 +239,15 @@ public class S_PlayerPickUp : MonoBehaviour
 
                     ChangeState(PlayerActionState.AnyState);
                 }
-            }
-        }
-
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
     }
 
-    private void Rotate()
+    private void GetKey(S_Key key)
     {
-        StartCoroutine(heldObject.GetComponent<S_InteractableObject>().Rotate());
+        key.GetKey();
     }
-    private void RotateCanceled()
+    
+    private void OpenDoor(S_Door door)
     {
-        heldObject.GetComponent<S_InteractableObject>().SetRotateBool(false);
+        door.OpenDoor();
     }
 }

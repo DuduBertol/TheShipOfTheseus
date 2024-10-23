@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class S_Key : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SO_KeyDoor keyDoorSO;
+
+    private void Start() 
     {
-        
+        keyDoorSO.isUnlocked = false;    
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GetKey()
     {
+        Debug.Log("Coletei chave!");
         
+        keyDoorSO.isUnlocked = true;
+
+        Destroy(gameObject);
     }
 }
