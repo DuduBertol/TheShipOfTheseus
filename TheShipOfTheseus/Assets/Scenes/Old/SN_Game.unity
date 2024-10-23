@@ -15780,8 +15780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347c61fd00715f74291150e3a9a014d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 3
-  yRotationLimit: 88
 --- !u!114 &961739755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15794,20 +15792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86dc6c6a7b44da45927d6c8dcb4f221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1729500313}
-  holdPos: {fileID: 742561274}
-  objectsPlaceArea: {fileID: 1227524166}
-  pickUpRange: 5
-  throwForce: 500
-  rotationSensitivity: 2
-  sensivitySlider: {fileID: 464696175}
-  rotationSensivitySlider: {fileID: 523513651}
-  selectionCursor: {fileID: 2104351724}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  cameraMovement: {fileID: 961739754}
-  movement: {fileID: 1729500318}
 --- !u!114 &961739756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24984,7 +24968,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729500313}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
