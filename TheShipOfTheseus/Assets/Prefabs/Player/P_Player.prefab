@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  groundDrag: 5
+  groundDrag: 8
   orientation: {fileID: 8859895061351736844}
   isFreezed: 0
 --- !u!1 &8295603309484503324
