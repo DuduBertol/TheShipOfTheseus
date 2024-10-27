@@ -200,6 +200,10 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 OpenDoor(door);
             }
+            else if(hit.transform.gameObject.TryGetComponent(out S_SingleSlider slider))
+            {
+                SliderAction(slider);
+            }
 
 
         }
@@ -249,5 +253,10 @@ public class S_PlayerPickUp : MonoBehaviour
     private void OpenDoor(S_Door door)
     {
         door.OpenDoor();
+    }
+
+    private void SliderAction(S_SingleSlider slider)
+    {
+        slider.Interact();
     }
 }

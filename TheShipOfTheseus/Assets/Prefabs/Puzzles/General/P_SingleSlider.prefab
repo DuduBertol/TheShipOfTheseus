@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 1846976663900982148}
   - component: {fileID: 2805585000362676891}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 4-Back_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6137121336149669522}
   - component: {fileID: 4303039188521365508}
+  - component: {fileID: 8042979080976650701}
   m_Layer: 0
   m_Name: P_SingleSlider
   m_TagString: Untagged
@@ -398,6 +399,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.28, y: 0.325, z: 0.15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8042979080976650701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440989568150022775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c13c6a8613d24429ccdd8dd08c8307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeValue: 0
+  index: 0
+  valuesList:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  sliderTextList:
+  - {fileID: 1276192220106553228}
+  - {fileID: 8719434306507712349}
+  - {fileID: 8171429780055057722}
+  - {fileID: 2805585000362676891}
+  - {fileID: 7799534574344485713}
+  - {fileID: 6388357707686905663}
+  chestParent: {fileID: 0}
 --- !u!1 &1619580689803123554
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +542,7 @@ GameObject:
   - component: {fileID: 4685298064209236125}
   - component: {fileID: 8171429780055057722}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 3-Back-Up_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -850,7 +880,7 @@ GameObject:
   - component: {fileID: 630629692221249268}
   - component: {fileID: 7799534574344485713}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 5-Back-Down_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1086,7 +1116,7 @@ GameObject:
   - component: {fileID: 3516567928135366522}
   - component: {fileID: 6388357707686905663}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 6-Front-Down_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,7 +1250,7 @@ GameObject:
   - component: {fileID: 9094118122049630884}
   - component: {fileID: 1276192220106553228}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 1-Front_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1384,7 @@ GameObject:
   - component: {fileID: 5149424064439919581}
   - component: {fileID: 8719434306507712349}
   m_Layer: 0
-  m_Name: IconText
+  m_Name: 2-Front-Up_IconText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
