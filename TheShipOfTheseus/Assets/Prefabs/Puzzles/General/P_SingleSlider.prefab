@@ -347,8 +347,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6137121336149669522}
-  - component: {fileID: 4303039188521365508}
   - component: {fileID: 8042979080976650701}
+  - component: {fileID: 7082225608038338567}
+  - component: {fileID: 3016566300260832091}
+  - component: {fileID: 4303039188521365508}
   m_Layer: 0
   m_Name: P_SingleSlider
   m_TagString: Untagged
@@ -378,27 +380,6 @@ Transform:
   - {fileID: 6458196945382400960}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &4303039188521365508
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440989568150022775}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.28, y: 0.325, z: 0.15}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8042979080976650701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +409,57 @@ MonoBehaviour:
   - {fileID: 7799534574344485713}
   - {fileID: 6388357707686905663}
   chestParent: {fileID: 0}
+--- !u!114 &7082225608038338567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440989568150022775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc75cf27cf93ab24091018984d1b350b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3016566300260832091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440989568150022775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &4303039188521365508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440989568150022775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.28, y: 0.325, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1619580689803123554
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,15 +7,13 @@ public class S_Chest : MonoBehaviour
     [SerializeField] private string password;
     [SerializeField] private string tempPassword;
 
-    [SerializeField] private Transform chestTop;
-
+    [SerializeField] private Animator animator;
     [SerializeField] private List<S_SingleSlider> slidersList;
 
-    public void OpenChest()
+    private void OpenChest()
     {
         Debug.Log("Baú Aberto!");
-
-        Destroy(chestTop.gameObject);
+        animator.SetTrigger("OpenDoor");
     }
 
     public void CheckPassword()
@@ -27,10 +25,6 @@ public class S_Chest : MonoBehaviour
             Debug.Log("Senha Correta!");
 
             OpenChest();
-        }
-        else
-        {
-            Debug.Log("ERRO - Senha Incorreta!");
         }
     }
 
