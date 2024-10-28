@@ -33,6 +33,8 @@ public class S_PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;    
         rb.drag = groundDrag;
+
+        Physics.gravity = new Vector3(0, -30f, 0);
     }
 
     private void Update() 
