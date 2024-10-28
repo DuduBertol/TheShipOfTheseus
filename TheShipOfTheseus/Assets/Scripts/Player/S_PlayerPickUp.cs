@@ -116,11 +116,11 @@ public class S_PlayerPickUp : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
         {
+            //OBJETO
             if(hit.transform.gameObject.TryGetComponent(out S_InteractableObject interactableObject)) 
             // Encontrei um objeto interagível
             {
                 highlightObject = interactableObject.gameObject;
-                interactableObject.SetOutline(true);
 
                 if (heldObject != null)
                 // Tenho um objeto e enxergo ele
@@ -144,16 +144,26 @@ public class S_PlayerPickUp : MonoBehaviour
 
                 if (highlightObject != null)
                 {
-                    highlightObject.GetComponent<S_InteractableObject>().SetOutline(false);
+                    highlightObject.GetComponent<S_Outliner>().SetOutline(false);
                     highlightObject = null;
                 }
             }
+
+            //OUTLINE
+            if(hit.transform.gameObject.TryGetComponent(out S_Outliner outliner))
+            {
+                objectViewState = ObjectViewState.View_NoHold;
+
+                highlightObject = outliner.gameObject;
+                outliner.SetOutline(true);
+            }
+
         }
         else
         {
             if (highlightObject != null)
             {
-                highlightObject.GetComponent<S_InteractableObject>().SetOutline(false);
+                highlightObject.GetComponent<S_Outliner>().SetOutline(false);
                 highlightObject = null;
             }
 
@@ -203,6 +213,10 @@ public class S_PlayerPickUp : MonoBehaviour
             else if(hit.transform.gameObject.TryGetComponent(out S_SingleSlider slider))
             {
                 SliderAction(slider);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_Lever lever))
+            {
+                LeverAction(lever);
             }
 
 
@@ -258,5 +272,10 @@ public class S_PlayerPickUp : MonoBehaviour
     private void SliderAction(S_SingleSlider slider)
     {
         slider.Interact();
+    }
+
+    private void LeverAction(S_Lever lever)
+    {
+        lever.Interact();
     }
 }
