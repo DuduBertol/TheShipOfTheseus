@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8eaa00b408f3a409f59f5b609ee00c, type: 3}
+  m_Name: SO_LoveCube
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2739727475888789762, guid: 7fc97c4db87ad4f45a5ee0659e4c6795, type: 3}

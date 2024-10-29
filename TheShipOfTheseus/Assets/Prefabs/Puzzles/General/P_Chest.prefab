@@ -257,7 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365bfb3db5c87ee49a8f8b079faa2d96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  password: 25461
+  isOpen: 0
+  password: 
   tempPassword: 
   chestTop: {fileID: 9099254672756803970}
   slidersList:

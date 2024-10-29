@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class S_SingleSlider : MonoBehaviour
+public class S_SingleLocker : MonoBehaviour
 {
 
     public string activeValue;
 
     [SerializeField] private int index;
-    [SerializeField] private List<string> valuesList;
-    [SerializeField] private List<TextMeshProUGUI> sliderTextList;
+    [SerializeField] private List<string> charList;
+    [SerializeField] private List<TextMeshProUGUI> lockerTextList;
+    [SerializeField] private Transform lockerArm;
     
-    [SerializeField] private S_Chest chestParent;
+    [SerializeField] private S_Locker lockerParent;
 
     private void Start() 
     {
@@ -22,9 +23,9 @@ public class S_SingleSlider : MonoBehaviour
 
     public void Interact()
     {
-        if(!chestParent.isOpen)
+        if(!lockerParent.isOpen)
         {
-            if(index < valuesList.Count-1)
+            if(index < charList.Count-1)
             {
                 index++;
             }
@@ -33,23 +34,23 @@ public class S_SingleSlider : MonoBehaviour
                 index = 0;
             }
             
-            transform.Rotate(0, 0, -60);
+            lockerArm.Rotate(0, 60, 0);
             UpdateValue();
 
-            chestParent.CheckPassword();
+            lockerParent.CheckPassword();
         }
     }
 
     private void UpdateValue()
     {
-        activeValue = valuesList[index];
+        activeValue = charList[index];
     }
 
     private void StarterVisual()
     {
-        for (int i = 0; i < valuesList.Count; i++)
+        for (int i = 0; i < charList.Count; i++)
         {
-            sliderTextList[i].text = valuesList[i].ToString();
+            lockerTextList[i].text = charList[i].ToString();
         }
     }
 

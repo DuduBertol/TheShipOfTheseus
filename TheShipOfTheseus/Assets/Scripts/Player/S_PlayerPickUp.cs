@@ -204,6 +204,25 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SliderAction(slider);
             }
+<<<<<<< Updated upstream
+=======
+            else if(hit.transform.gameObject.TryGetComponent(out S_Lever lever))
+            {
+                LeverAction(lever);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_SingleLocker singleLocker))
+            {
+                SingleLockerAction(singleLocker);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_SecretButton secretButton))
+            {
+                SecretButtonAction(secretButton);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_SecretBook secretBook))
+            {
+                SecretBookAction(secretBook);
+            }
+>>>>>>> Stashed changes
 
 
         }
@@ -259,4 +278,26 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         slider.Interact();
     }
+<<<<<<< Updated upstream
+=======
+
+    private void LeverAction(S_Lever lever)
+    {
+        lever.Interact();
+    }
+    private void SingleLockerAction(S_SingleLocker singleLocker)
+    {
+        singleLocker.Interact();
+    }
+
+    private void SecretButtonAction(S_SecretButton secretButton)
+    {
+        secretButton.Interact();
+    }
+
+    private void SecretBookAction(S_SecretBook secretBook)
+    {
+        secretBook.Interact();
+    }
+>>>>>>> Stashed changes
 }

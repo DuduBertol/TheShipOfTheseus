@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class S_Chest : MonoBehaviour
 {
+    public bool isOpen;
     [SerializeField] private string password;
     [SerializeField] private string tempPassword;
 
@@ -14,9 +15,16 @@ public class S_Chest : MonoBehaviour
     public void OpenChest()
     {
         Debug.Log("Baú Aberto!");
+<<<<<<< Updated upstream
 
         Destroy(chestTop.gameObject);
     }
+=======
+    
+        isOpen = true;
+        animator.SetTrigger("OpenDoor");
+        }
+>>>>>>> Stashed changes
 
     public void CheckPassword()
     {   
