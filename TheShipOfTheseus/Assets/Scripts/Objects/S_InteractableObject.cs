@@ -24,7 +24,6 @@ public class S_InteractableObject : MonoBehaviour
     private Transform thisParent;
     
     private S_PlayerPickUp playerPickUp;
-    private Outline outline;
     
     private int defaultLayer = 0;
     private int holdLayer = 6;
@@ -33,14 +32,11 @@ public class S_InteractableObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();    
-        outline = GetComponent<Outline>();
     }
 
     private void Start() 
     {
         playerPickUp = FindObjectOfType<S_PlayerPickUp>();
-
-        outline.enabled = false;
     }
 
     private void Update() 
@@ -95,10 +91,7 @@ public class S_InteractableObject : MonoBehaviour
         Selected();
     }
 
-    public void SetOutline(bool value)
-    {
-        outline.enabled = value;
-    }
+    
 
     private void Selected()
     {

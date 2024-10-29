@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 922254436022650082, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.543
+      objectReference: {fileID: 0}
+    - target: {fileID: 922254436022650082, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.036
+      objectReference: {fileID: 0}
     - target: {fileID: 5077203491167467909, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
         type: 3}
       propertyPath: m_Name
@@ -63,6 +73,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8494011682590871381, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 91b1a34f6eb7bbc4291afc296530eea5, type: 2}
+    - target: {fileID: 8494011682590871381, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9ddaab54dbfe7b1498baddeb2cd89e58, type: 2}
     - target: {fileID: 8894588901465369988, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
         type: 3}
       propertyPath: keyDoorSO

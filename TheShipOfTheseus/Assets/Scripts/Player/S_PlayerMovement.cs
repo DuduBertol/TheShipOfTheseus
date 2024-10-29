@@ -33,8 +33,6 @@ public class S_PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;    
         rb.drag = groundDrag;
-
-        Physics.gravity = new Vector3(0, -30f, 0);
     }
 
     private void Update() 
@@ -69,7 +67,7 @@ public class S_PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVel = new Vector3(rb.velocity.x, 1f, rb.velocity.z);
 
         // limit velocity if needed
         if(flatVel.magnitude > moveSpeed)

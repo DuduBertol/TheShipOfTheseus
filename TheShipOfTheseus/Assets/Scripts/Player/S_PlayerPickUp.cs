@@ -116,11 +116,11 @@ public class S_PlayerPickUp : MonoBehaviour
 
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange, ~playerLayer))
         {
+            //OBJETO
             if(hit.transform.gameObject.TryGetComponent(out S_InteractableObject interactableObject)) 
             // Encontrei um objeto interagível
             {
                 highlightObject = interactableObject.gameObject;
-                interactableObject.SetOutline(true);
 
                 if (heldObject != null)
                 // Tenho um objeto e enxergo ele
@@ -144,16 +144,26 @@ public class S_PlayerPickUp : MonoBehaviour
 
                 if (highlightObject != null)
                 {
-                    highlightObject.GetComponent<S_InteractableObject>().SetOutline(false);
+                    highlightObject.GetComponent<S_Outliner>().SetOutline(false);
                     highlightObject = null;
                 }
             }
+
+            //OUTLINE
+            if(hit.transform.gameObject.TryGetComponent(out S_Outliner outliner))
+            {
+                objectViewState = ObjectViewState.View_NoHold;
+
+                highlightObject = outliner.gameObject;
+                outliner.SetOutline(true);
+            }
+
         }
         else
         {
             if (highlightObject != null)
             {
-                highlightObject.GetComponent<S_InteractableObject>().SetOutline(false);
+                highlightObject.GetComponent<S_Outliner>().SetOutline(false);
                 highlightObject = null;
             }
 
@@ -204,12 +214,16 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SliderAction(slider);
             }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
             else if(hit.transform.gameObject.TryGetComponent(out S_Lever lever))
             {
                 LeverAction(lever);
             }
+<<<<<<< HEAD
             else if(hit.transform.gameObject.TryGetComponent(out S_SingleLocker singleLocker))
             {
                 SingleLockerAction(singleLocker);
@@ -223,6 +237,8 @@ public class S_PlayerPickUp : MonoBehaviour
                 SecretBookAction(secretBook);
             }
 >>>>>>> Stashed changes
+=======
+>>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
 
 
         }
@@ -278,13 +294,17 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         slider.Interact();
     }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
 
     private void LeverAction(S_Lever lever)
     {
         lever.Interact();
     }
+<<<<<<< HEAD
     private void SingleLockerAction(S_SingleLocker singleLocker)
     {
         singleLocker.Interact();
@@ -300,4 +320,6 @@ public class S_PlayerPickUp : MonoBehaviour
         secretBook.Interact();
     }
 >>>>>>> Stashed changes
+=======
+>>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
 }

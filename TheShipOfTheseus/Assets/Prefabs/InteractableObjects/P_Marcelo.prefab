@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6900759528338933553}
   - component: {fileID: 3539586800064812663}
   - component: {fileID: 7537996136361584115}
+  - component: {fileID: 483750408963398457}
   - component: {fileID: 4294633717491657502}
   m_Layer: 0
   m_Name: P_Marcelo
@@ -191,6 +192,18 @@ MonoBehaviour:
   col: {fileID: 0}
   interactPos: {x: 0, y: 0, z: 0}
   interactRot: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &483750408963398457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326166123858194125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc75cf27cf93ab24091018984d1b350b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4294633717491657502
 MonoBehaviour:
   m_ObjectHideFlags: 0
