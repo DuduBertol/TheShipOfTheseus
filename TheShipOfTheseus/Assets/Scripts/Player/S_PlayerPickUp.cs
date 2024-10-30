@@ -214,16 +214,10 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SliderAction(slider);
             }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
             else if(hit.transform.gameObject.TryGetComponent(out S_Lever lever))
             {
                 LeverAction(lever);
             }
-<<<<<<< HEAD
             else if(hit.transform.gameObject.TryGetComponent(out S_SingleLocker singleLocker))
             {
                 SingleLockerAction(singleLocker);
@@ -236,11 +230,6 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SecretBookAction(secretBook);
             }
->>>>>>> Stashed changes
-=======
->>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
-
-
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
@@ -294,17 +283,10 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         slider.Interact();
     }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
-
     private void LeverAction(S_Lever lever)
     {
         lever.Interact();
     }
-<<<<<<< HEAD
     private void SingleLockerAction(S_SingleLocker singleLocker)
     {
         singleLocker.Interact();
@@ -319,7 +301,4 @@ public class S_PlayerPickUp : MonoBehaviour
     {
         secretBook.Interact();
     }
->>>>>>> Stashed changes
-=======
->>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
 }

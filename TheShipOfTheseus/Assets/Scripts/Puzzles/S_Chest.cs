@@ -14,20 +14,10 @@ public class S_Chest : MonoBehaviour
     private void OpenChest()
     {
         Debug.Log("Baú Aberto!");
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-
-        Destroy(chestTop.gameObject);
-=======
-        animator.SetTrigger("OpenDoor");
->>>>>>> d5c657cd1b61de5981f5aafbaa86067b3389d56f
-    }
-=======
     
         isOpen = true;
         animator.SetTrigger("OpenDoor");
         }
->>>>>>> Stashed changes
 
     public void CheckPassword()
     {   
