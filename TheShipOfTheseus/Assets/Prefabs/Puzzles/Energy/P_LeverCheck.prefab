@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: baf056f4929793e4a947d1e632597b85, type: 2}
+  - {fileID: 2100000, guid: 58fd131ae882bff4b8a04a01e6b8b9a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948b5d58ccb4edd4aa2a629d3c9d7bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnergyOn: 0
   password: 
   tempPassword: 
   leversList:
@@ -305,7 +306,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c7a2e7161ef033946850a654c9236a1d, type: 2}
+  - {fileID: 2100000, guid: d259bf2c731115141b73dcc0b1dce808, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
