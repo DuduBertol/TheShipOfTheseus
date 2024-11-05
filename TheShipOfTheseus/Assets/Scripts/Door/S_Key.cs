@@ -18,6 +18,6 @@ public class S_Key : MonoBehaviour
         
         keyDoorSO.isUnlocked = true;
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

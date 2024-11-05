@@ -11,13 +11,14 @@ public class S_Vault : MonoBehaviour
 
     // [SerializeField] private Animator animator;
     [SerializeField] private List<S_SingleVaultLocker> lockersList;
+    [SerializeField] private Animator animator;
 
     private void OpenDrawer()
     {
         Debug.Log("COFRE Aberto!");
 
         isOpen = true;
-        // animator.SetTrigger("OpenDoor");
+        animator.SetTrigger("OpenDoor");
     }
 
     public void CheckPassword()

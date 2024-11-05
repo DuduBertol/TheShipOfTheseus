@@ -11,13 +11,14 @@ public class S_Locker : MonoBehaviour
 
     // [SerializeField] private Animator animator;
     [SerializeField] private List<S_SingleLocker> lockersList;
+    [SerializeField] private Animator animator;
 
     private void OpenDrawer()
     {
         Debug.Log("Gaveta Aberta!");
 
         isOpen = true;
-        // animator.SetTrigger("OpenDoor");
+        animator.SetTrigger("OpenDrawer");
     }
 
     public void CheckPassword()

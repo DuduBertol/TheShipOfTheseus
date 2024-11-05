@@ -6,15 +6,27 @@ using UnityEngine;
 public class S_Door : MonoBehaviour
 {
     public SO_KeyDoor keyDoorSO;
+    public Animator animator;
+
+    private bool isOpen;
 
     public void OpenDoor()
     {
         Debug.Log("Tentei abrir porta!");
 
-        if(keyDoorSO.isUnlocked)
+        if(keyDoorSO.isUnlocked && !isOpen)
         {
-            Debug.Log("Porta Aberta!");
-            Destroy(gameObject);
+            isOpen = true;
+            Debug.Log("Abri porta!");
+            if(animator.enabled)
+            {
+                animator.SetTrigger("OpenDoor");
+            }
         }
+    }
+
+    public void DisableAnimator()
+    {
+        animator.enabled = false;
     }
 }

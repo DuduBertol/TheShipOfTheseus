@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4992729536205298934, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
+        type: 3}
+      propertyPath: keyDoorSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 2391ba9720dfe1d4b9f52cd97ee4f126,
+        type: 2}
     - target: {fileID: 5077203491167467909, guid: 6792d9f5ca8b9314995db1b36c7d7a99,
         type: 3}
       propertyPath: m_Name
