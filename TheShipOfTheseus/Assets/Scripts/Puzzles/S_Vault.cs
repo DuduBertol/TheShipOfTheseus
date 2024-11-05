@@ -10,7 +10,7 @@ public class S_Vault : MonoBehaviour
     [SerializeField] private string tempPassword;
 
     // [SerializeField] private Animator animator;
-    [SerializeField] private List<S_SingleLocker> lockersList;
+    [SerializeField] private List<S_SingleVaultLocker> lockersList;
 
     private void OpenDrawer()
     {

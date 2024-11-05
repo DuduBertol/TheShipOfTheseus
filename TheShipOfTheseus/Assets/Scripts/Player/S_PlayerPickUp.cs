@@ -222,6 +222,10 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SingleLockerAction(singleLocker);
             }
+            else if(hit.transform.gameObject.TryGetComponent(out S_SingleVaultLocker singleVaultLocker))
+            {
+                SingleVaultLockerAction(singleVaultLocker);
+            }
             else if(hit.transform.gameObject.TryGetComponent(out S_SecretButton secretButton))
             {
                 SecretButtonAction(secretButton);
@@ -290,6 +294,10 @@ public class S_PlayerPickUp : MonoBehaviour
     private void SingleLockerAction(S_SingleLocker singleLocker)
     {
         singleLocker.Interact();
+    }
+    private void SingleVaultLockerAction(S_SingleVaultLocker singleVaultLocker)
+    {
+        singleVaultLocker.Interact();
     }
 
     private void SecretButtonAction(S_SecretButton secretButton)
