@@ -12,13 +12,27 @@ public class S_LeverCheck : MonoBehaviour
 
     [SerializeField] private List<S_Lever> leversList;
 
+    [SerializeField] private List<MeshRenderer> sunCables;
+    [SerializeField] private List<MeshRenderer> moonCables;
+    [SerializeField] private Material offMaterial;
+    [SerializeField] private Material onSunMaterial;
+    [SerializeField] private Material onMoonMaterial;
+
+    private void Start() 
+    {
+        TurnOffCables();
+    }
+
     private void TurnOnEnergy()
     {
         Debug.Log("Energia Ligada!");
         
         isEnergyOn = true;
+
+        S_EventManager.Instance.Energy_SpawnLetter();
+        S_EventManager.Instance.Energy_SpawnLoveKey();
         
-        //Spawn Primeira Carta
+        TurnOnCables();
     }
 
     public bool CheckPassword()
@@ -49,6 +63,33 @@ public class S_LeverCheck : MonoBehaviour
         }
     }
 
+    private void TurnOnCables()
+    {
+        // SUN
+        for (int i = 0; i < sunCables.Count; i++)
+        {
+            sunCables[i].material = onSunMaterial;
+        }   
 
+        // MOON
+        for (int i = 0; i < moonCables.Count; i++)
+        {
+            moonCables[i].material = onMoonMaterial;
+        }   
+    }
+    private void TurnOffCables()
+    {
+        // SUN
+        for (int i = 0; i < sunCables.Count; i++)
+        {
+            sunCables[i].material = offMaterial;
+        }   
+
+        // MOON
+        for (int i = 0; i < moonCables.Count; i++)
+        {
+            moonCables[i].material = offMaterial;
+        }   
+    }
 
 }

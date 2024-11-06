@@ -7,6 +7,10 @@ public class S_EventManager : MonoBehaviour
     public static S_EventManager Instance {get; private set;}
 
 
+    [Header("ENERGY EVENTS")]
+    [SerializeField] private Transform loveKey;
+    [SerializeField] private Transform energyCard;
+
     [Header("LOVE EVENTS")]
     [SerializeField] private Transform loveSecretRoom;
     [SerializeField] private Transform wallToDestroy;
@@ -38,12 +42,12 @@ public class S_EventManager : MonoBehaviour
     public void Energy_SpawnLetter()
     {
         Debug.Log("SPAWN - Energy Letter na Porta Principal!");
-
+        energyCard.gameObject.SetActive(true);
     }
     public void Energy_SpawnLoveKey()
     {
         Debug.Log("SPAWN - LOVE Key!");
-
+        loveKey.gameObject.SetActive(true);
     }
     #endregion
 

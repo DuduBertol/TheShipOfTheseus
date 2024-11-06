@@ -12,7 +12,7 @@ public class S_BookshelfSecretDoor : MonoBehaviour
     [SerializeField] private string password;
     [SerializeField] private string tempPassword;
 
-    // [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;
 
     private void OpenDoor()
     {
@@ -20,9 +20,7 @@ public class S_BookshelfSecretDoor : MonoBehaviour
 
         isOpen = true;
 
-        // animator.SetTrigger("OpenDoor");
-        float distanceToMove = -3f;
-        transform.localPosition += new Vector3 (0, 0, distanceToMove);
+        animator.SetTrigger("OpenDoor");
     }
 
     public void AddToPassword(string value)

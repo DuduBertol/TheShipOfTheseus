@@ -44,7 +44,7 @@ public class S_PlayerCutscene : MonoBehaviour
     [SerializeField] private float openedColorValue;
     
 
-    private Volume globalVolume;
+    [SerializeField] private Volume globalVolume;
     private Vignette vignette;
     private ColorAdjustments colorAdjustments;
 
@@ -58,7 +58,6 @@ public class S_PlayerCutscene : MonoBehaviour
 
     private void Start() 
     {
-        globalVolume = FindObjectOfType<Volume>();
 
         StartConfig();
 

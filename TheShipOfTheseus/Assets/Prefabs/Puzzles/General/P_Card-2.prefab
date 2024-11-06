@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2278857385962723927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3438365931371980999, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501418541088832395, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501418541088832395, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501418541088832395, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945741119637467749, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_Name
+      value: Front
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977235670878507479, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977235670878507479, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977235670878507479, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977235670878507479, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009644541209528674, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211695055394602796, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287734934966832894, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858438446816722180, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_text
+      value: "\n\tO cansa\xE7o j\xE1 n\xE3o \xE9 apenas do corpo, mas da alma, que
+        carrega saudade e uma vontade de que o tempo me d\xEA um pouco mais de espa\xE7o.
+        \xC9 estranho\u2026 a energia que sempre me movia agora me falta em pequenos
+        atos. Vou continuar lutando."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858438446816722180, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442471186923191080, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_text
+      value: "\t\n\tEsses dias t\xEAm sido duros, e confesso que sinto minhas for\xE7as
+        esvaindo-se mais a cada jornada. Quando penso em tudo o que ainda gostaria
+        de fazer, nas hist\xF3rias que ainda quero contar, me pergunto se minha energia
+        ser\xE1 suficiente."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860451129291354599, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483423774789816286, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262093721005305087, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_Name
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574086255384912710, guid: cf617f8c1c12f9342a67bd6938c2e2a9,
+        type: 3}
+      propertyPath: m_Name
+      value: P_Card-2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf617f8c1c12f9342a67bd6938c2e2a9, type: 3}

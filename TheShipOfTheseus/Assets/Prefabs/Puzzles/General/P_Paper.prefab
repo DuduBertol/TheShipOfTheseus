@@ -477,6 +477,7 @@ MonoBehaviour:
   inverted: 0
   rotation: {x: 0, y: 0}
   rotateAllowed: 0
+  isInspecting: 0
   rb: {fileID: 0}
   col: {fileID: 0}
   interactPos: {x: 0, y: 0, z: 0}

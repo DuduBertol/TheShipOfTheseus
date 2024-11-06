@@ -13,6 +13,7 @@ public class S_InteractableObject : MonoBehaviour
 	[SerializeField] private bool inverted;
 	[SerializeField] private Vector2 rotation;
     [SerializeField] private bool rotateAllowed;
+    [SerializeField] private bool isInspecting;
 
     [Header(">> Dev Only <<")]
     [SerializeField] private Rigidbody rb;
@@ -75,18 +76,29 @@ public class S_InteractableObject : MonoBehaviour
 
     public void Inspect()
     {
+        isInspecting = true;
+
         transform.position = playerPickUp.playerInspectPos.position;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        // transform.rotation = Quaternion.Euler(0, 0, 0);
         
         originalObject.transform.localPosition = Vector3.zero;
         translucedObject.transform.localPosition = Vector3.zero;
         translucedObject.SetActive(false);
+
+        
+        Cursor.lockState = CursorLockMode.None;    
+        Cursor.visible = true;
     }
 
     public void BackInspect()
     {
-        transform.localPosition = interactPos;
-        transform.localRotation = interactRot;
+        isInspecting = false;
+
+        Cursor.lockState = CursorLockMode.Locked;    
+        Cursor.visible = false;
+
+        transform.localPosition = new Vector3(0, 0, interactPos.z);
+        // transform.localRotation = interactRot;
 
         Selected();
     }
@@ -125,15 +137,18 @@ public class S_InteractableObject : MonoBehaviour
     public IEnumerator Rotate()
 	{
 		rotateAllowed = true;
+        isInspecting = true;
 
-		while(rotateAllowed)
+		while(rotateAllowed && isInspecting)
 		{
+
             rotation = GameInput.Instance.GetMouseMovementVectorNormalizedPlayer();
 
 			// apply rotation
 			rotation *= S_PlayerCam.Instance.rotationSens;
 			transform.Rotate(Vector3.up * (inverted? 1: -1), rotation.x, Space.World);
 			transform.Rotate(S_PlayerCam.Instance.gameObject.transform.right * (inverted? -1: 1), rotation.y, Space.World);
+
 			yield return null;
 		}
 	}
