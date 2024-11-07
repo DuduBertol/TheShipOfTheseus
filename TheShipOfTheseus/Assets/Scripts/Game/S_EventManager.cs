@@ -7,13 +7,22 @@ public class S_EventManager : MonoBehaviour
     public static S_EventManager Instance {get; private set;}
 
 
+    [Header("ROOM EVENTS")]
+    [SerializeField] private Transform lightBedsideTable;
+    [SerializeField] private Transform lightPhoto;
+
     [Header("ENERGY EVENTS")]
     [SerializeField] private Transform loveKey;
+    [SerializeField] private Transform loveKeyImage;
     [SerializeField] private Transform energyCard;
 
     [Header("LOVE EVENTS")]
     [SerializeField] private Transform loveSecretRoom;
     [SerializeField] private Transform wallToDestroy;
+    
+    [Header("PLANETS EVENTS")]
+    [SerializeField] private Transform sunKey;
+    [SerializeField] private Transform moonKey;
 
 
     private void Awake() 
@@ -30,6 +39,12 @@ public class S_EventManager : MonoBehaviour
     public void OpenFinalDoor()
     {
 
+    }
+
+    public void DestroyLightsMenu()
+    {
+        lightBedsideTable.gameObject.SetActive(false);
+        lightPhoto.gameObject.SetActive(false);
     }
 
     #endregion
@@ -79,7 +94,6 @@ public class S_EventManager : MonoBehaviour
     public void Library_OpenSecretBookshelf()
     {
         Debug.Log("Aberta a Sala Secreta LIBRARY!");
-
     }
     #endregion
 
@@ -91,12 +105,12 @@ public class S_EventManager : MonoBehaviour
     public void Planets_SpawnSUNKey()
     {
         Debug.Log("SPAWN - SUN Key!");
-
+        sunKey.gameObject.SetActive(true);
     }
     public void Planets_SpawnMOONKey()
     {
         Debug.Log("SPAWN - MOON Key!");
-
+        moonKey.gameObject.SetActive(true);
     }
     #endregion
 

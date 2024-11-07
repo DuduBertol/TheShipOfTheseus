@@ -519,6 +519,7 @@ MonoBehaviour:
   inverted: 0
   rotation: {x: 0, y: 0}
   rotateAllowed: 0
+  isInspecting: 0
   rb: {fileID: 0}
   col: {fileID: 0}
   interactPos: {x: 0, y: 0, z: 0}
@@ -1742,6 +1743,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 89cc852b54b798745abe956a24954211,
+        type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8402688e88b56a641892c37fdbe707d6, type: 2}
     - target: {fileID: 919132149155446097, guid: 89cc852b54b798745abe956a24954211,
         type: 3}
       propertyPath: m_Name

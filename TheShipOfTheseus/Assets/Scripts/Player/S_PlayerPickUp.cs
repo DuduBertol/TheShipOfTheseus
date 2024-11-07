@@ -234,6 +234,15 @@ public class S_PlayerPickUp : MonoBehaviour
             {
                 SecretBookAction(secretBook);
             }
+            else if(hit.transform.gameObject.TryGetComponent(out S_FinalKey finalKey))
+            {
+                GetFinalKey(finalKey);
+            }
+            else if(hit.transform.gameObject.TryGetComponent(out S_FinalDoor finalDoor))
+            {
+                TryOpenFinalDoor(finalDoor);
+            }
+
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * pickUpRange, Color.blue);
@@ -308,5 +317,14 @@ public class S_PlayerPickUp : MonoBehaviour
     private void SecretBookAction(S_SecretBook secretBook)
     {
         secretBook.Interact();
+    }
+
+    private void TryOpenFinalDoor(S_FinalDoor finalDoor)
+    {
+        finalDoor.TryOpenDoor();
+    }
+    private void GetFinalKey(S_FinalKey finalKey)
+    {
+        finalKey.Collect();
     }
 }

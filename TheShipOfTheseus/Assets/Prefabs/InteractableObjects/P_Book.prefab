@@ -122,7 +122,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b1fa0e3aaf50ff340b8ed245ff9fbcc1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8d98135ef8d2b2f4798a37345024bc58, type: 2}
+    - target: {fileID: 3073600218960757964, guid: 5dc18e6cb731eae42bfadb064a684cd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58e1f9f9e292fc94d80703a46598218d, type: 2}
     - target: {fileID: 3577937750484559129, guid: 5dc18e6cb731eae42bfadb064a684cd3,
         type: 3}
       propertyPath: m_Name
@@ -245,6 +250,7 @@ MonoBehaviour:
   inverted: 0
   rotation: {x: 0, y: 0}
   rotateAllowed: 0
+  isInspecting: 0
   rb: {fileID: 0}
   col: {fileID: 0}
   interactPos: {x: 0, y: 0, z: 0}

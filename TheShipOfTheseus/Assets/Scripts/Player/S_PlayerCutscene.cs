@@ -165,6 +165,8 @@ public class S_PlayerCutscene : MonoBehaviour
 
         //CANVAS
         playerCanvas.gameObject.SetActive(true);
+
+        S_EventManager.Instance.DestroyLightsMenu();
     }
     
 
