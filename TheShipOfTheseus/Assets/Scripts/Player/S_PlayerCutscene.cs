@@ -56,6 +56,10 @@ public class S_PlayerCutscene : MonoBehaviour
     [SerializeField] private GameObject drawerOptions;
     [SerializeField] private GameObject drawerCredits;
 
+
+    //GAME OVER
+    private bool isGameOver;
+
     private void Start() 
     {
 
@@ -113,6 +117,11 @@ public class S_PlayerCutscene : MonoBehaviour
         }
 
         OutlineCheck();
+
+        if(isGameOver)
+        {
+            ImageClose();
+        }
     }
 
     private void StartCutscene() 
@@ -184,6 +193,11 @@ public class S_PlayerCutscene : MonoBehaviour
             state = 2;
 
             EnableGameplay();
+
+            if(isGameOver)
+            {
+                // >> LOAD CREDITS
+            }
         }
     }
     private void ImageOpen()
@@ -238,4 +252,18 @@ public class S_PlayerCutscene : MonoBehaviour
             }
         }
     }
+
+    public void GameOverCutscene()
+    {
+        Debug.Log("Game Over. :)");
+
+        isGameOver = true;
+
+        elapsedCloseImageTime = 0f;
+        closeImageTimerMax = closeImageTimerMax * 3;
+
+        S_EventManager.Instance.SetGameOver();
+    }
+
+    
 }

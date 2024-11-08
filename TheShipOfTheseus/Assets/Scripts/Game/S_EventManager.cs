@@ -6,6 +6,7 @@ public class S_EventManager : MonoBehaviour
 {
     public static S_EventManager Instance {get; private set;}
 
+    public bool isGameOver;
 
     [Header("ROOM EVENTS")]
     [SerializeField] private Transform lightBedsideTable;
@@ -35,10 +36,10 @@ public class S_EventManager : MonoBehaviour
     //==============================================================================
 
     #region GENERAL EVENTS
-    
-    public void OpenFinalDoor()
-    {
 
+    public void SetGameOver()
+    {
+        isGameOver = true;
     }
 
     public void DestroyLightsMenu()
