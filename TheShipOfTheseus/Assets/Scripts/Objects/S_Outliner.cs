@@ -6,6 +6,10 @@ public class S_Outliner : MonoBehaviour
 {
     private Outline outline;
 
+    //Recursive Unable Outline
+    private float timer;
+    private float timerMax = 15f;
+
     private void Awake() 
     {  
         outline = GetComponent<Outline>();
@@ -16,8 +20,22 @@ public class S_Outliner : MonoBehaviour
         outline.enabled = false;
     }
 
+    private void Update() 
+    {
+        timer += Time.deltaTime;
+
+        if (timer > timerMax)
+        {
+            SetOutline(false);
+            
+            timer = 0f;
+        }
+    }
+
     public void SetOutline(bool value)
     {
         outline.enabled = value;
     }
+
+    
 }

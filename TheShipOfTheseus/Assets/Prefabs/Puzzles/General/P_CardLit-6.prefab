@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3659990808411675732
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: "   Na fase Cheia, a lua est\xE1 completa, totalmente iluminada, como
+        em certos momentos da vida, com a sensa\xE7\xE3o de ter tudo o que precisamos.\n\n  
+        Logo vem a Minguante, a fase do recolhimento, do desapego, quando \xE9 hora
+        de refletir e deixar ir o que j\xE1 cumpriu seu tempo.\n\_\n   Por fim, a
+        lua Nova, que representa recome\xE7os, renova\xE7\xE3o, e o ciclo se inicia
+        outra vez."
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939582923322581355, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_Name
+      value: P_CardLit-6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: "   Dizem que a lua \xE9 apenas uma rocha, alguns escritores afirmam
+        isso como verdade. Ser\xE1 mesmo?\n\n   A lua \xE9 como um s\xEDmbolo enigm\xE1tico
+        das fases da vida. Fiz algumas leituras em minha biblioteca, talvez encontre
+        mais respostas l\xE1.\_\n\n   Em sua fase Crescente, nos lembra do come\xE7o,
+        do crescimento, de tudo o que se forma e est\xE1 em andamento \u2014 como
+        seus primeiros passos.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_paragraphSpacing
+      value: -43.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096182430666922858, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359728948692600302, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248554946268354199, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74b39e89368f32545a302fbc92087199, type: 3}

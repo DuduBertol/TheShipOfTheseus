@@ -8,6 +8,8 @@ public class S_SecretButton : MonoBehaviour
 
     public void Interact()
     {
-        if(wallToOpen != null) Destroy(wallToOpen.gameObject);
+        wallToOpen.gameObject.GetComponent<Animator>().SetTrigger("OpenDoor");
+
+        GetComponent<Animator>().SetTrigger("Click");
     }
 }

@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3659990808411675732
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: "   \xC9 como se cada onda levasse com ela uma parte de mim, uma lembran\xE7a,
+        um instante que n\xE3o volta mais.\n\n   \xC0s vezes, fecho os olhos e penso
+        em cada momento que vivi, e no tanto que ainda queria compartilhar com meu
+        filho.\n   O tempo \xE9 uma coisa misteriosa, imprevis\xEDvel\u2026 sigo
+        contando com as estrelas para me guiar."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939582923322581355, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_Name
+      value: P_CardLit-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: "   Aqui, em meio ao oceano, sinto como se estivesse preso em uma enorme
+        ampulheta. A areia escorre devagar, mas ao mesmo tempo, parece que tudo passa
+        em um piscar de olhos.\n\n   Sinto o tempo escapando entre meus dedos, como
+        essa brisa que percorre todo o barco e desaparece. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096182430666922858, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359728948692600302, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248554946268354199, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74b39e89368f32545a302fbc92087199, type: 3}

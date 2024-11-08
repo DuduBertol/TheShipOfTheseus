@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3659990808411675732
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: " Eles dizem que essa pedra representa o engano e a prote\xE7\xE3o.
+        Marcelo jurou que traz sorte, um talism\xE3 contra as ilus\xF5es que o mundo
+        nos imp\xF5e.\n\n Achei po\xE9tico\u2026 porque, assim como essa pedra, h\xE1
+        coisas que guardamos e que nos protegem dos enganos. Marcelo se tornou como
+        uma \xE2ncora para mim, um apoio enquanto cruzo esses mares, sempre ao meu
+        lado\_ como meu querido filho."
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 365632590714900836, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939582923322581355, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_Name
+      value: P_CardLit-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173798209908100595, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894383968366866927, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_text
+      value: "   Nesta manh\xE3, encontrei algo interessante. Marcelo, meu fiel companheiro
+        nessa viagem, se mostrou uma pedra curiosa e corajosa, podem at\xE9 acreditar
+        ser o s\xEDmbolo de Cronos, aquele que um dia engoliu a rocha pensando ser
+        Zeus.\n\n..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096182430666922858, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359728948692600302, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248554946268354199, guid: 74b39e89368f32545a302fbc92087199,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 74b39e89368f32545a302fbc92087199, type: 3}

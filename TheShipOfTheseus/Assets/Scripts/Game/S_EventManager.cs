@@ -63,6 +63,7 @@ public class S_EventManager : MonoBehaviour
     {
         Debug.Log("SPAWN - LOVE Key!");
         loveKey.gameObject.SetActive(true);
+        loveKeyImage.gameObject.SetActive(true);
     }
     #endregion
 
