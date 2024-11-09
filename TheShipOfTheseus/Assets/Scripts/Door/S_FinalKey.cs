@@ -14,5 +14,7 @@ public class S_FinalKey : MonoBehaviour
         finalDoor.KeyCollected(type);
 
         gameObject.SetActive(false);
+
+        SoundManager.Instance.PlayGetKeySound(transform.position, 0.8f);
     }
 }

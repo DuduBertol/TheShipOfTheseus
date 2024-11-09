@@ -29,6 +29,8 @@ public class S_PlanetPlacer : MonoBehaviour
 
                     Debug.Log("Planeta Correto!");
 
+                    SoundManager.Instance.PlayCorrectSound(transform.position, 0.6f);
+
                     planetCheck.CheckAllPlanets();
                 }
                 else

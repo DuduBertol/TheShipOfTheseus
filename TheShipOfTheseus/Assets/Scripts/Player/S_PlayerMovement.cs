@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,19 @@ public class S_PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;    
         rb.drag = groundDrag;
+
+        S_EventManager.Instance.OnGameOver += S_EventManager_OnGameOver;
+        S_EventManager.Instance.OnToggleIsPaused += S_EventManager_OnToggleIsPaused;
+    }
+
+    private void S_EventManager_OnToggleIsPaused(object sender, EventArgs e)
+    {
+        isFreezed = S_EventManager.Instance.isPaused;
+    }
+
+    private void S_EventManager_OnGameOver(object sender, EventArgs e)
+    {
+        isFreezed = true;
     }
 
     private void Update() 

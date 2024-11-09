@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class S_PlayerCutscene02 : MonoBehaviour
 {
-    [Header(">> Configs")]
+    /* [Header(">> Configs")]
     [SerializeField] private Transform playerParentTransform;
     [SerializeField] private Transform playerCamTransform;
     [SerializeField] private Vector3 initialPlayerPos;
@@ -112,5 +112,5 @@ public class S_PlayerCutscene02 : MonoBehaviour
         {
             EnableGameplay();
         }
-    }
+    } */
 }

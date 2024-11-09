@@ -22,6 +22,8 @@ public class S_PlanetCheck : MonoBehaviour
         {
             S_EventManager.Instance.Planets_SpawnMOONKey();
             S_EventManager.Instance.Planets_SpawnSUNKey();
+
+            SoundManager.Instance.PlayCorrectSound(transform.position, 0.6f);
         }
         else
         {

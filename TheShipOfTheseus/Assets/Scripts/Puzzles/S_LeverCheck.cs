@@ -33,6 +33,8 @@ public class S_LeverCheck : MonoBehaviour
         S_EventManager.Instance.Energy_SpawnLoveKey();
         
         TurnOnCables();
+
+        SoundManager.Instance.PlayEnergyOnSound(transform.position, 0.8f);
     }
 
     public bool CheckPassword()

@@ -34,6 +34,8 @@ public class S_SecretBook : MonoBehaviour
             
             InteractPos();
 
+            SoundManager.Instance.PlayGearSound(transform.position, 0.2f);
+
             activeValue = charSymbol;
             bookshelfSecretDoor.AddToPassword(activeValue);
         }

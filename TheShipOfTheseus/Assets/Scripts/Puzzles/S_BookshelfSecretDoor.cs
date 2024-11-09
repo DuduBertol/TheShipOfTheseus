@@ -21,6 +21,8 @@ public class S_BookshelfSecretDoor : MonoBehaviour
         isOpen = true;
 
         animator.SetTrigger("OpenDoor");
+
+        SoundManager.Instance.PlayBookshelftSlideSound(transform.position, 0.4f);
     }
 
     public void AddToPassword(string value)

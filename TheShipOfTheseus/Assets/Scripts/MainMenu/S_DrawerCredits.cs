@@ -15,5 +15,7 @@ public class S_DrawerCredits : MonoBehaviour
     public void PlayAnim()
     {
         animator.SetTrigger("OpenDrawer");
+
+        SoundManager.Instance.PlayDrawerSound(transform.position, 0.3f);
     }
 }

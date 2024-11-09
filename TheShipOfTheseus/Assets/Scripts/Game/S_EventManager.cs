@@ -1,12 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class S_EventManager : MonoBehaviour
 {
     public static S_EventManager Instance {get; private set;}
 
+    public event EventHandler OnGameOver;
+    public event EventHandler OnToggleIsPaused;
+
+    [Header("GAME EVENTS")]
+    public bool isGameStarded;
     public bool isGameOver;
+    public bool isPaused;
 
     [Header("ROOM EVENTS")]
     [SerializeField] private Transform lightBedsideTable;
@@ -30,6 +38,15 @@ public class S_EventManager : MonoBehaviour
     {
         Instance = this;    
     }
+    private void Start() 
+    {
+        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+    }
+
+    private void GameInput_OnPauseAction(object sender, EventArgs e)
+    {
+        ToggleIsPaused();    
+    }
 
     //==============================================================================
     
@@ -39,8 +56,34 @@ public class S_EventManager : MonoBehaviour
 
     public void SetGameOver()
     {
+        Debug.Log("Game over! - Event");
+
         isGameOver = true;
+
+        OnGameOver?.Invoke(this, EventArgs.Empty);
     }
+
+    public void ToggleIsPaused()
+    {
+        if(isGameStarded && !isGameOver)
+        {
+            isPaused = !isPaused;
+
+            OnToggleIsPaused?.Invoke(this, EventArgs.Empty);
+
+            if(isPaused)
+            {
+                Cursor.lockState = CursorLockMode.Confined;    
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;    
+                Cursor.visible = false;
+            }
+        }   
+    }
+
 
     public void DestroyLightsMenu()
     {
@@ -115,5 +158,25 @@ public class S_EventManager : MonoBehaviour
         moonKey.gameObject.SetActive(true);
     }
     #endregion
+
+    
+
+    //==============================================================================
+    
+    //==============================================================================
+
+    #region SCENE EVENTS
+
+    public void LoadLoadingScene()
+    {
+        SceneManager.LoadScene("LoadingScene");
+    }
+
+    #endregion
+
+    public void PrintTeste()
+    {
+        Debug.Log("Funcionando!");
+    }
 
 }

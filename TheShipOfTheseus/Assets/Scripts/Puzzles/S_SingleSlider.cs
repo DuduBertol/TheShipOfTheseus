@@ -36,6 +36,8 @@ public class S_SingleSlider : MonoBehaviour
             transform.Rotate(0, 0, -60);
             UpdateValue();
 
+            SoundManager.Instance.PlayGearSound(transform.position, 0.2f);
+
             chestParent.CheckPassword();
         }
     }

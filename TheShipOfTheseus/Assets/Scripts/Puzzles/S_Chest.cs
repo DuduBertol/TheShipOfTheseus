@@ -17,7 +17,10 @@ public class S_Chest : MonoBehaviour
     
         isOpen = true;
         animator.SetTrigger("OpenDoor");
-        }
+
+        SoundManager.Instance.PlayLockerSound(transform.position, 0.4f);
+        SoundManager.Instance.PlayOpenChestSound(transform.position, 0.4f);
+    }
 
     public void CheckPassword()
     {   

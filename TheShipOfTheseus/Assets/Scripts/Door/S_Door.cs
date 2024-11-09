@@ -21,6 +21,7 @@ public class S_Door : MonoBehaviour
             if(animator.enabled)
             {
                 animator.SetTrigger("OpenDoor");
+                SoundManager.Instance.PlayOpenDoorSound(transform.position, 0.4f);
             }
         }
     }

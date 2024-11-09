@@ -27,6 +27,8 @@ public class S_Lever : MonoBehaviour
 
             AngleSet();
 
+            SoundManager.Instance.PlayLeverSound(transform.position, 0.5f);
+            
             leverCheck.CheckPassword();
         }
     }
@@ -34,5 +36,6 @@ public class S_Lever : MonoBehaviour
     private void AngleSet()
     {
         leverArm.rotation = Quaternion.Euler(0, 0, anglesList[state]);
+
     }
 }

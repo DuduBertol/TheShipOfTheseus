@@ -15,6 +15,8 @@ public class S_DrawerStartGame : MonoBehaviour
     public void PlayAnim()
     {
         animator.SetTrigger("OpenDrawer");
+        
+        SoundManager.Instance.PlayDrawerSound(transform.position, 0.3f);
     }
     
     public void DisableCanvas()

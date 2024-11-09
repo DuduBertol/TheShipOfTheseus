@@ -8,13 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/SN_Initial.unity
     guid: ecaf8cff784a18a4fb04c900f07e7910
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/SN_Game.unity
     guid: 8cc663da01b9bad4e92ca2aa005a940f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old/SN_Final.unity
     guid: 8c71f9b83addd0f41a466f0ddcfd26ee
+  - enabled: 1
+    path: Assets/Scenes/OfficialScenes/SN_MainMenu.unity
+    guid: 383a1a0e81954f1449362a9939973087
+  - enabled: 1
+    path: Assets/Scenes/OfficialScenes/SN_Official.unity
+    guid: 65d15010c6090bf43bbd55ea59c03238
   m_configObjects: {}

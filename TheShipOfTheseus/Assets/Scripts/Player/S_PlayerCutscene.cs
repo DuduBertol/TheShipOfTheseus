@@ -59,6 +59,7 @@ public class S_PlayerCutscene : MonoBehaviour
 
     //GAME OVER
     private bool isGameOver;
+    private bool singleShot;
 
     private void Start() 
     {
@@ -66,6 +67,7 @@ public class S_PlayerCutscene : MonoBehaviour
         StartConfig();
 
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
@@ -105,7 +107,7 @@ public class S_PlayerCutscene : MonoBehaviour
         if(!isStarted)
         {
             //MOUSE
-            Cursor.lockState = CursorLockMode.None;    
+            Cursor.lockState = CursorLockMode.Confined;    
             Cursor.visible = true;
         }
 
@@ -137,12 +139,12 @@ public class S_PlayerCutscene : MonoBehaviour
 
     private void OptionsMenu()
     {
-
+        //DISABLED
     }
 
     private void CreditsMenu()
     {
-
+        //DISABLED
     }
 
     private void StartConfig()
@@ -154,10 +156,6 @@ public class S_PlayerCutscene : MonoBehaviour
         //PLAYER
         playerParentTransform.position = initialPlayerPos;
         playerCamTransform.rotation = Quaternion.Euler(initialCamRot);
-
-        //MOUSE (isso não ta funcionando, logo coloquei no Update() )
-        Cursor.lockState = CursorLockMode.None;    
-        Cursor.visible = true;
 
         //CANVAS
         playerCanvas.gameObject.SetActive(false);
@@ -176,6 +174,7 @@ public class S_PlayerCutscene : MonoBehaviour
         playerCanvas.gameObject.SetActive(true);
 
         S_EventManager.Instance.DestroyLightsMenu();
+        S_EventManager.Instance.isGameStarded = true;
     }
     
 
@@ -194,9 +193,13 @@ public class S_PlayerCutscene : MonoBehaviour
 
             EnableGameplay();
 
-            if(isGameOver)
+            if(isGameOver && !singleShot)
             {
-                // >> LOAD CREDITS
+                singleShot = true;
+
+                S_EventManager.Instance.SetGameOver();
+                
+                vignette.intensity.value = openedVigneteValue;
             }
         }
     }
@@ -261,8 +264,6 @@ public class S_PlayerCutscene : MonoBehaviour
 
         elapsedCloseImageTime = 0f;
         closeImageTimerMax = closeImageTimerMax * 3;
-
-        S_EventManager.Instance.SetGameOver();
     }
 
     

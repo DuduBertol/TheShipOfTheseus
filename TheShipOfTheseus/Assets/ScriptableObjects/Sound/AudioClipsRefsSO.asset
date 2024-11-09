@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20820883e63e50a47898710db0c85ea4, type: 3}
+  m_Name: AudioClipsRefsSO
+  m_EditorClassIdentifier: 
+  SFX_OpenChest: {fileID: 8300000, guid: e780be4da370ac346908fac6a2fad561, type: 3}
+  SFX_OpenDoor: {fileID: 8300000, guid: 77dd01c73dec61e4187840370e62b4f8, type: 3}
+  SFX_Button: {fileID: 8300000, guid: 0fae3757d34a9134098ccca8e4728312, type: 3}
+  SFX_Correct: {fileID: 8300000, guid: 8499490f789cb704ea1f9923ac2ebd4d, type: 3}
+  SFX_UnlockDoor: {fileID: 8300000, guid: 4c4ae484903527242bfe5d66e9f96a61, type: 3}
+  SFX_Drop: {fileID: 8300000, guid: c3455db8a6b34034aa1c8cc4e3e6d806, type: 3}
+  SFX_EnergyOn: {fileID: 8300000, guid: fed5457bcacc66f4e89a101208a8a997, type: 3}
+  SFX_Drawer: {fileID: 8300000, guid: 0699697bff5fcdf4fa0aa0369f171503, type: 3}
+  SFX_Gear: {fileID: 8300000, guid: 6f61ccbb22178654684b8a2c5bb9cb7a, type: 3}
+  SFX_Interact: {fileID: 8300000, guid: b6480426c9b199d4799e89a9a51f6440, type: 3}
+  SFX_Lever: {fileID: 8300000, guid: f7a18afc2d9e5ac4193f11f63fa7ed28, type: 3}
+  SFX_Locker: {fileID: 8300000, guid: 924fde2e9cd21ad4b8778232ea36e2d6, type: 3}
+  SFX_Paper: {fileID: 8300000, guid: 07c5f2756480b2c4783912677f0662e6, type: 3}
+  SFX_Footsteps:
+  - {fileID: 8300000, guid: 87942f6f73523c843a6f2a241637a0cd, type: 3}
+  - {fileID: 8300000, guid: e3ac42a748123994c850035ae42dcaa7, type: 3}
+  - {fileID: 8300000, guid: 5403acde38fce674f8238b3ad93e5286, type: 3}
+  - {fileID: 8300000, guid: 5931a62485bf77a4eb9026eb115fbbdb, type: 3}
+  SFX_PickUp: {fileID: 8300000, guid: f5d5b059663c0d1429ec497b859ee335, type: 3}
+  SFX_Creak: {fileID: 8300000, guid: 752c8dd163ecff14cb12a4ec9b5f715a, type: 3}
+  SFX_GetKey: {fileID: 8300000, guid: e0526f2f98879a84d8e307e1147bb0a6, type: 3}
+  SFX_BookshelfSlide: {fileID: 8300000, guid: dcd6d6bf1647c334ea418172a3c6471a, type: 3}

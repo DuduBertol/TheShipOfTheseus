@@ -19,6 +19,9 @@ public class S_Vault : MonoBehaviour
 
         isOpen = true;
         animator.SetTrigger("OpenDoor");
+
+        SoundManager.Instance.PlayLockerSound(transform.position, 0.4f);
+        SoundManager.Instance.PlayDrawerSound(transform.position, 0.4f);
     }
 
     public void CheckPassword()

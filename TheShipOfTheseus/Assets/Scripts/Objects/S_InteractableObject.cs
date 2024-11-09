@@ -40,10 +40,6 @@ public class S_InteractableObject : MonoBehaviour
         playerPickUp = FindObjectOfType<S_PlayerPickUp>();
     }
 
-    private void Update() 
-    {
-    }
-
     public SO_InteractableObject GetInteractableObjectSO()
     {
         return interactableObjectSO;
@@ -67,11 +63,15 @@ public class S_InteractableObject : MonoBehaviour
     public void PickUp()
     {
         Selected();
+
+        SoundManager.Instance.PlayPickUpSound(transform.position, 0.4f);
     }
 
     public void Drop()
     {
         Unselected();
+
+        SoundManager.Instance.PlayDropSound(transform.position, 0.5f);
     }
 
     public void Inspect()
@@ -86,7 +86,7 @@ public class S_InteractableObject : MonoBehaviour
         translucedObject.SetActive(false);
 
         
-        Cursor.lockState = CursorLockMode.None;    
+        Cursor.lockState = CursorLockMode.Confined;    
         Cursor.visible = true;
     }
 
@@ -145,7 +145,7 @@ public class S_InteractableObject : MonoBehaviour
             rotation = GameInput.Instance.GetMouseMovementVectorNormalizedPlayer();
 
 			// apply rotation
-			rotation *= S_PlayerCam.Instance.rotationSens;
+			rotation *= (S_PlayerCam.Instance.rotationSens/10);
 			transform.Rotate(Vector3.up * (inverted? 1: -1), rotation.x, Space.World);
 			transform.Rotate(S_PlayerCam.Instance.gameObject.transform.right * (inverted? -1: 1), rotation.y, Space.World);
 

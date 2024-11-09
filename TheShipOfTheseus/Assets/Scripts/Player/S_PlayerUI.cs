@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,6 +7,9 @@ using UnityEngine.UI;
 
 public class S_PlayerUI : MonoBehaviour
 {
+    [Header("Game Panels")]
+    [SerializeField] private Transform gameOverPanel;
+
     [Header("Game Objects")]
     [SerializeField] private GameObject selectionCursor;
     [SerializeField] private Image dropCheck;
@@ -21,6 +25,21 @@ public class S_PlayerUI : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private S_PlayerPickUp playerPickUp;
+    [SerializeField] private Animator animator;
+
+    
+    private void Start() 
+    {
+        S_EventManager.Instance.OnGameOver += S_EventManager_OnGameOver;
+    }
+
+    private void S_EventManager_OnGameOver(object sender, EventArgs e)
+    {
+        Debug.Log("Game over! - UI");
+
+        gameOverPanel.gameObject.SetActive(true);
+        animator.SetTrigger("GameOver");
+    }
 
     private void Update() 
     {
@@ -70,6 +89,11 @@ public class S_PlayerUI : MonoBehaviour
     private void ToggleSelectCursor(bool value)
     {
         selectionCursor.SetActive(value);
+    }
+
+    public void EndGame()
+    {
+        S_EventManager.Instance.LoadLoadingScene();
     }
         
 

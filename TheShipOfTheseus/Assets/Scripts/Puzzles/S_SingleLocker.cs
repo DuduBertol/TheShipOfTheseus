@@ -37,7 +37,10 @@ public class S_SingleLocker : MonoBehaviour
             lockerArm.Rotate(0, 60, 0);
             UpdateValue();
 
+            SoundManager.Instance.PlayGearSound(transform.position, 0.2f);
+
             lockerParent.CheckPassword();
+
         }
     }
 
@@ -51,6 +54,7 @@ public class S_SingleLocker : MonoBehaviour
         for (int i = 0; i < charList.Count; i++)
         {
             lockerTextList[i].text = charList[i].ToString();
+
         }
     }
 

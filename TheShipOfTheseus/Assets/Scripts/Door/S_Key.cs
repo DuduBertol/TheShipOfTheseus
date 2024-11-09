@@ -17,7 +17,8 @@ public class S_Key : MonoBehaviour
         Debug.Log("Coletei chave!");
         
         keyDoorSO.isUnlocked = true;
-
         gameObject.SetActive(false);
+
+        SoundManager.Instance.PlayUnlockDoorSound(transform.position, 0.4f);
     }
 }

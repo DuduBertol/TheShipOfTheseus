@@ -14,5 +14,7 @@ public class S_TRIGGameOver : MonoBehaviour
     private void OnCollisionEnter(Collision other) 
     {
         playerCutscene.GameOverCutscene();    
+
+        S_PlayerMovement.Instance.isFreezed = true;
     }
 }

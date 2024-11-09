@@ -19,6 +19,10 @@ public class S_Locker : MonoBehaviour
 
         isOpen = true;
         animator.SetTrigger("OpenDrawer");
+
+        SoundManager.Instance.PlayLockerSound(transform.position, 0.3f);
+        SoundManager.Instance.PlayDrawerSound(transform.position, 0.3f);
+
     }
 
     public void CheckPassword()

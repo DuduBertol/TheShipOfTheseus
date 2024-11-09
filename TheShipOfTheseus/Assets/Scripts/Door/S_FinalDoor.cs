@@ -13,6 +13,10 @@ public class S_FinalDoor : MonoBehaviour
     [SerializeField] private Transform keyMesh_SUN;
     [SerializeField] private Transform keyMesh_MOON;
 
+    [SerializeField] private Collider colliderClosed;
+    [SerializeField] private Collider colliderOpenedSun;
+    [SerializeField] private Collider colliderOpenedMoon;
+
     [SerializeField] private Animator animator;
 
     private void Start() 
@@ -31,6 +35,7 @@ public class S_FinalDoor : MonoBehaviour
             if(animator.enabled)
             {
                 animator.SetTrigger("OpenDoor");
+                SoundManager.Instance.PlayOpenDoorSound(transform.position, 0.4f);
             }
         }
         
@@ -40,6 +45,7 @@ public class S_FinalDoor : MonoBehaviour
             Debug.Log("Desbolqueei SOL!");
 
             UnlockSunDoor();
+            SoundManager.Instance.PlayUnlockDoorSound(transform.position, 0.4f);
         }
         
         if(hasMoonKey)
@@ -47,12 +53,17 @@ public class S_FinalDoor : MonoBehaviour
             Debug.Log("Desbolqueei LUA!");
 
             UnlockMoonDoor();
+            SoundManager.Instance.PlayUnlockDoorSound(transform.position, 0.4f);
         }
     }
     
     public void DisableAnimator()
     {
         animator.enabled = false;
+
+        colliderClosed.enabled = false;
+        colliderOpenedSun.enabled = true;
+        colliderOpenedMoon.enabled = true;
     }
 
 
