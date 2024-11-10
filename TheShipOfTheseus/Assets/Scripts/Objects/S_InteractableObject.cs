@@ -64,14 +64,14 @@ public class S_InteractableObject : MonoBehaviour
     {
         Selected();
 
-        SoundManager.Instance.PlayPickUpSound(transform.position, 0.4f);
+        SoundManager.Instance.PlayPickUpSound(transform.position, 0.1f);
     }
 
     public void Drop()
     {
         Unselected();
 
-        SoundManager.Instance.PlayDropSound(transform.position, 0.5f);
+        SoundManager.Instance.PlayDropSound(transform.position, 0.1f);
     }
 
     public void Inspect()

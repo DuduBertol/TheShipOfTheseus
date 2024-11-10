@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20820883e63e50a47898710db0c85ea4, type: 3}
   m_Name: AudioClipsRefsSO
   m_EditorClassIdentifier: 
-  SFX_OpenChest: {fileID: 8300000, guid: e780be4da370ac346908fac6a2fad561, type: 3}
+  SFX_OpenChest: {fileID: 8300000, guid: 77dd01c73dec61e4187840370e62b4f8, type: 3}
   SFX_OpenDoor: {fileID: 8300000, guid: 77dd01c73dec61e4187840370e62b4f8, type: 3}
   SFX_Button: {fileID: 8300000, guid: 0fae3757d34a9134098ccca8e4728312, type: 3}
   SFX_Correct: {fileID: 8300000, guid: 8499490f789cb704ea1f9923ac2ebd4d, type: 3}
@@ -27,7 +27,6 @@ MonoBehaviour:
   SFX_Paper: {fileID: 8300000, guid: 07c5f2756480b2c4783912677f0662e6, type: 3}
   SFX_Footsteps:
   - {fileID: 8300000, guid: 87942f6f73523c843a6f2a241637a0cd, type: 3}
-  - {fileID: 8300000, guid: e3ac42a748123994c850035ae42dcaa7, type: 3}
   - {fileID: 8300000, guid: 5403acde38fce674f8238b3ad93e5286, type: 3}
   - {fileID: 8300000, guid: 5931a62485bf77a4eb9026eb115fbbdb, type: 3}
   SFX_PickUp: {fileID: 8300000, guid: f5d5b059663c0d1429ec497b859ee335, type: 3}

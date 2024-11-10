@@ -16,4 +16,4 @@ MonoBehaviour:
     type: 3}
   keyPrefab: {fileID: 1678397624638389203, guid: 91b32804e693a024bbef6940e98c03bb,
     type: 3}
-  isUnlocked: 1
+  isUnlocked: 0

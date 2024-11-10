@@ -37,7 +37,7 @@ public class S_SingleLocker : MonoBehaviour
             lockerArm.Rotate(0, 60, 0);
             UpdateValue();
 
-            SoundManager.Instance.PlayGearSound(transform.position, 0.2f);
+            SoundManager.Instance.PlayGearSound(transform.position, 0.05f);
 
             lockerParent.CheckPassword();
 

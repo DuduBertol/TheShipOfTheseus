@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 3766370297596655808}
   - component: {fileID: 1664252480554628319}
   - component: {fileID: 456853549174297082}
+  - component: {fileID: 2286179820692494871}
   m_Layer: 7
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -227,6 +228,23 @@ MonoBehaviour:
   rotationSens: 0.3
   orientation: {fileID: 8859895061351736844}
   isFreezed: 0
+--- !u!114 &2286179820692494871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783360677685214623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175d8c7e752107c428d3db749a6255f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobSpeed: 15
+  bobMultiply: 0
+  bobAmount: 0.05
+  timer: 0
+  footstepTimeMax: 0.35
 --- !u!1 &1055769564107424658
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClipsRefsSO audioClipsRefsSO;
     [Range(0f, 5f)][SerializeField] private float volume;
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioSource musicAudioSource;
 
     private float maxVolume = 5f;
 
@@ -20,7 +21,13 @@ public class SoundManager : MonoBehaviour
 
     private void Start() 
     {
-        volumeSlider.value = volume/5;      
+        volumeSlider.value = volume/5;  
+
+        if(musicAudioSource.clip != null)
+        {
+            musicAudioSource.Play();
+            musicAudioSource.loop = true;
+        }    
     }
 
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume)

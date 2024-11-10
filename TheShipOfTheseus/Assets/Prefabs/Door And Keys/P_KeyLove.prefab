@@ -72,7 +72,7 @@ PrefabInstance:
         type: 3}
       propertyPath: keyDoorSO
       value: 
-      objectReference: {fileID: 11400000, guid: b58d71be9b5f11c459a1d26e9f963af6,
+      objectReference: {fileID: 11400000, guid: e3d373981cc0dca418d3fe6135e384fc,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:

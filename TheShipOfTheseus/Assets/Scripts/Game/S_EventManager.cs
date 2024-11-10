@@ -169,7 +169,7 @@ public class S_EventManager : MonoBehaviour
 
     public void LoadLoadingScene()
     {
-        SceneManager.LoadScene("LoadingScene");
+        SceneManager.LoadScene("SN_MainMenu");
     }
 
     #endregion

@@ -19,10 +19,10 @@ public class S_PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-
     private Vector3 moveDirection;
-
     private Rigidbody rb;
+
+    
 
     private void Awake() 
     {
