@@ -176,6 +176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
         type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 1744801307499989523}
+    - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+        type: 3}
       propertyPath: planetCheck
       value: 
       objectReference: {fileID: 3182352908622595144}
@@ -190,13 +195,22 @@ PrefabInstance:
       value: P_PlanetPlacer-Neptune
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2401952099353632015, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 503267905420894977, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 2311413521863649245, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
 --- !u!4 &1148872651987875301 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2506109546096573412, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 3258038554318130689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1744801307499989523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3819095669361361938, guid: 686fd0971747dfa4c85306be8fd9e4ee,
     type: 3}
   m_PrefabInstance: {fileID: 3258038554318130689}
   m_PrefabAsset: {fileID: 0}
@@ -328,6 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
         type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 1758931467892791804}
+    - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+        type: 3}
       propertyPath: planetCheck
       value: 
       objectReference: {fileID: 3182352908622595144}
@@ -342,10 +361,19 @@ PrefabInstance:
       value: P_PlanetPlacer-Saturn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6431020276863527106, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 503267905420894977, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 2311413521863649245, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+--- !u!4 &1758931467892791804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6240024605119268850, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 5688608767849356814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4575221570970990234 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
@@ -470,6 +498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
         type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 5789194565444043558}
+    - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+        type: 3}
       propertyPath: planetCheck
       value: 
       objectReference: {fileID: 3182352908622595144}
@@ -484,7 +517,10 @@ PrefabInstance:
       value: P_PlanetPlacer-Mars
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2401952099353632015, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 6431020276863527106, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 2311413521863649245, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
@@ -500,6 +536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da9bd7d891f46b4aae370a7c912cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5789194565444043558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 745213302959109413, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 6485427847391344131}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8703104157304933863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2506109546096573412, guid: 686fd0971747dfa4c85306be8fd9e4ee,
@@ -627,6 +669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
         type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 6206268156437032474}
+    - target: {fileID: 8182913322438060180, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+        type: 3}
       propertyPath: planetCheck
       value: 
       objectReference: {fileID: 3182352908622595144}
@@ -641,7 +688,10 @@ PrefabInstance:
       value: P_PlanetPlacer-Jupiter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2401952099353632015, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 6431020276863527106, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
+    - {fileID: 503267905420894977, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 686fd0971747dfa4c85306be8fd9e4ee, type: 3}
@@ -657,6 +707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da9bd7d891f46b4aae370a7c912cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6206268156437032474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3224501091857461753, guid: 686fd0971747dfa4c85306be8fd9e4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 8835678366271709155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6366365785391604743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2506109546096573412, guid: 686fd0971747dfa4c85306be8fd9e4ee,

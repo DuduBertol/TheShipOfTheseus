@@ -10,6 +10,8 @@ public class S_Lever : MonoBehaviour
     [SerializeField] private Transform leverArm;
 
     [SerializeField] private S_LeverCheck leverCheck;
+    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private ParticleSystem particle2;
 
 
     public void Interact()
@@ -27,7 +29,9 @@ public class S_Lever : MonoBehaviour
 
             AngleSet();
 
-            SoundManager.Instance.PlayLeverSound(transform.position, 0.5f);
+            SoundManager.Instance.PlayLeverSound(transform.position, 0.3f);
+            particle.Play();
+            particle2.Play();
             
             leverCheck.CheckPassword();
         }

@@ -21,7 +21,9 @@ public class SoundManager : MonoBehaviour
 
     private void Start() 
     {
-        volumeSlider.value = volume/5;  
+        volumeSlider.value = volume/maxVolume;
+
+        musicAudioSource.volume = volume/2;
 
         if(musicAudioSource.clip != null)
         {
@@ -43,6 +45,8 @@ public class SoundManager : MonoBehaviour
     public void SetVolumeSlider()
     {
         volume = volumeSlider.value * maxVolume;
+
+        musicAudioSource.volume = volume/2;
     }
 
     //==========================

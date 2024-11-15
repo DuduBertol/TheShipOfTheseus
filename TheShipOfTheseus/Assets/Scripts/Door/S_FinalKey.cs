@@ -15,6 +15,6 @@ public class S_FinalKey : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        SoundManager.Instance.PlayGetKeySound(transform.position, 0.8f);
+        SoundManager.Instance.PlayGetKeySound(transform.position, 0.4f);
     }
 }

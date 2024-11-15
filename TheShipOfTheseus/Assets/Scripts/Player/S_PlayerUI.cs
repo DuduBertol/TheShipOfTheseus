@@ -48,6 +48,7 @@ public class S_PlayerUI : MonoBehaviour
 
     private void DropChecking()
     {
+        S_PlayerPickUp.PlayerActionState actState =  playerPickUp.GetPlayerActionState();
         S_PlayerPickUp.ObjectViewState state =  playerPickUp.GetObjectViewState();
         
         if (state == S_PlayerPickUp.ObjectViewState.View_Hold)
@@ -61,7 +62,11 @@ public class S_PlayerUI : MonoBehaviour
         else if (state == S_PlayerPickUp.ObjectViewState.View_NoHold)
         {
             ClearDropCheck();
-            ToggleSelectCursor(true);
+
+            if(actState != S_PlayerPickUp.PlayerActionState.Inspect)
+                ToggleSelectCursor(true);
+            else
+                ToggleSelectCursor(false);
         }
         else if (state == S_PlayerPickUp.ObjectViewState.NoView_NoHold)
         {

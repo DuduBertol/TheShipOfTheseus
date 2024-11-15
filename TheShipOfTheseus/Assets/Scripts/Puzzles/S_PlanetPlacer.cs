@@ -9,6 +9,7 @@ public class S_PlanetPlacer : MonoBehaviour
     
     [SerializeField] private Transform planetPos;
     [SerializeField] private S_PlanetCheck planetCheck;
+    [SerializeField] private Transform particle;
 
     private void OnTriggerEnter(Collider other) 
     {
@@ -26,6 +27,9 @@ public class S_PlanetPlacer : MonoBehaviour
                 {
                     isCorrect = true;
                     planet.FreezePlanet();
+
+                    particle.gameObject.SetActive(true);
+                    particle.gameObject.GetComponent<ParticleSystem>().Play();
 
                     Debug.Log("Planeta Correto!");
 

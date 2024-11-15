@@ -4207,7 +4207,7 @@ PrefabInstance:
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.267
+      value: -5.292
       objectReference: {fileID: 0}
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
@@ -7552,7 +7552,7 @@ PrefabInstance:
     - target: {fileID: 6792814201406714347, guid: 7fc97c4db87ad4f45a5ee0659e4c6795,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.35
+      value: -4.522
       objectReference: {fileID: 0}
     - target: {fileID: 6792814201406714347, guid: 7fc97c4db87ad4f45a5ee0659e4c6795,
         type: 3}
@@ -12233,7 +12233,7 @@ PrefabInstance:
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.713
+      value: -8.648
       objectReference: {fileID: 0}
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
@@ -13651,7 +13651,7 @@ PrefabInstance:
     - target: {fileID: 6792814201406714347, guid: 7fc97c4db87ad4f45a5ee0659e4c6795,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.337
+      value: -6.019
       objectReference: {fileID: 0}
     - target: {fileID: 6792814201406714347, guid: 7fc97c4db87ad4f45a5ee0659e4c6795,
         type: 3}
@@ -26939,7 +26939,7 @@ PrefabInstance:
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.267
+      value: -5.291
       objectReference: {fileID: 0}
     - target: {fileID: 4257340493333566598, guid: c49b1745dfd41fa47860f67fc1d8e5fe,
         type: 3}
@@ -32557,7 +32557,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b92b427e46ab1ba46ad6e8e2d47c698c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -43478,11 +43478,11 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.78
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1774272886}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: SetVolumeSlider
         m_Mode: 1
@@ -50307,7 +50307,7 @@ PrefabInstance:
     - target: {fileID: 2354999262098107819, guid: 50029dd859550fd42a716d723e91adff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.776
+      value: -7.042
       objectReference: {fileID: 0}
     - target: {fileID: 2354999262098107819, guid: 50029dd859550fd42a716d723e91adff,
         type: 3}
@@ -54714,6 +54714,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1882590666}
     m_Modifications:
+    - target: {fileID: 1894295602605535502, guid: b71781556570c2840b4aeb032250152a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.277
+      objectReference: {fileID: 0}
     - target: {fileID: 5237281664865912066, guid: b71781556570c2840b4aeb032250152a,
         type: 3}
       propertyPath: leverCheck
@@ -60323,6 +60328,7 @@ PrefabInstance:
     - {fileID: 5384675201931891739, guid: 6b1e768927343dc438dc9a016eaabde3, type: 3}
     - {fileID: 4955213386858477747, guid: 6b1e768927343dc438dc9a016eaabde3, type: 3}
     - {fileID: 4905986448556055378, guid: 6b1e768927343dc438dc9a016eaabde3, type: 3}
+    - {fileID: 507506802584520897, guid: 6b1e768927343dc438dc9a016eaabde3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1660197679816520164, guid: 6b1e768927343dc438dc9a016eaabde3,
         type: 3}
@@ -63331,7 +63337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126708524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e984d3d140bf0094c9ee7a25362fe46e, type: 3}
   m_Name: 
@@ -65094,6 +65100,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_CentralTable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689302480988836589, guid: bb008a331572f3146a7ceb8703b016b9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.54265714
+      objectReference: {fileID: 0}
+    - target: {fileID: 1689302480988836589, guid: bb008a331572f3146a7ceb8703b016b9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.22867143
       objectReference: {fileID: 0}
     - target: {fileID: 9136104903516233073, guid: bb008a331572f3146a7ceb8703b016b9,
         type: 3}

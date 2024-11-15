@@ -151,6 +151,9 @@ public class S_EventManager : MonoBehaviour
     {
         Debug.Log("SPAWN - SUN Key!");
         sunKey.gameObject.SetActive(true);
+
+        loveKey.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        loveKeyImage.gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
     public void Planets_SpawnMOONKey()
     {

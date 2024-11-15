@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655309954422314151}
+  - component: {fileID: 2669905184409593156}
   m_Layer: 0
   m_Name: P_MoonLiquidTank
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 6978960483281597776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &2669905184409593156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555012185519339927}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.571071, y: 2.839456, z: 1.5028394}
+  m_Center: {x: 0.01205945, y: 0.91972804, z: 0.040545106}
 --- !u!1001 &7444598515667407547
 PrefabInstance:
   m_ObjectHideFlags: 0

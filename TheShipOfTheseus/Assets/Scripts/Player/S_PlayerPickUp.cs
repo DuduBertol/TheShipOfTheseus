@@ -178,6 +178,11 @@ public class S_PlayerPickUp : MonoBehaviour
         return objectViewState;
     }
 
+    public PlayerActionState GetPlayerActionState()
+    {
+        return playerActionState;
+    }
+
     public void ChangeState(PlayerActionState state)
     {
         playerActionState = state;
@@ -260,26 +265,26 @@ public class S_PlayerPickUp : MonoBehaviour
     private void Interact(S_InteractableObject interactableObject)
     {
         if(heldObject == null)
-                //Peguei o objeto
-                {
-                    heldObject = interactableObject.gameObject;
-                    
-                    interactableObject.PickUp();
-                    interactableObject.SetParent(playerHoldPos);
-                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), true);
+        //Peguei o objeto
+        {
+            heldObject = interactableObject.gameObject;
+            
+            interactableObject.PickUp();
+            interactableObject.SetParent(playerHoldPos);
+            Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), true);
 
-                    ChangeState(PlayerActionState.Interact);
-                }
-                else
-                //Dropei o objeto 
-                {
-                    heldObject = null;
-                    interactableObject.Drop();
-                    interactableObject.ClearParent();
-                    Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
+            ChangeState(PlayerActionState.Interact);
+        }
+        else
+        //Dropei o objeto 
+        {
+            heldObject = null;
+            interactableObject.Drop();
+            interactableObject.ClearParent();
+            Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
 
-                    ChangeState(PlayerActionState.AnyState);
-                }
+            ChangeState(PlayerActionState.AnyState);
+        }
     }
 
     private void GetKey(S_Key key)
