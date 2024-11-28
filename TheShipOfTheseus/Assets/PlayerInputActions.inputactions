@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "ResetRotation",
+                    "type": "Button",
+                    "id": "aa6fc3c0-cca3-470f-ab03-91c4362b139f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Mouse",
                     "type": "Value",
                     "id": "048e0b1e-8048-420e-96c6-2afe488c583b",
@@ -115,6 +124,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48796ed4-21ff-4707-99da-69703c29611d",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

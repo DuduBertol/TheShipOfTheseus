@@ -55,6 +55,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""ResetRotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa6fc3c0-cca3-470f-ab03-91c4362b139f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Mouse"",
                     ""type"": ""Value"",
                     ""id"": ""048e0b1e-8048-420e-96c6-2afe488c583b"",
@@ -139,6 +148,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48796ed4-21ff-4707-99da-69703c29611d"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -150,6 +170,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Inspect = m_Player.FindAction("Inspect", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
+        m_Player_ResetRotation = m_Player.FindAction("ResetRotation", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
@@ -216,6 +237,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Inspect;
     private readonly InputAction m_Player_Rotation;
+    private readonly InputAction m_Player_ResetRotation;
     private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_Pause;
     public struct PlayerActions
@@ -225,6 +247,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Inspect => m_Wrapper.m_Player_Inspect;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
+        public InputAction @ResetRotation => m_Wrapper.m_Player_ResetRotation;
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -245,6 +268,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
+            @ResetRotation.started += instance.OnResetRotation;
+            @ResetRotation.performed += instance.OnResetRotation;
+            @ResetRotation.canceled += instance.OnResetRotation;
             @Mouse.started += instance.OnMouse;
             @Mouse.performed += instance.OnMouse;
             @Mouse.canceled += instance.OnMouse;
@@ -264,6 +290,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
+            @ResetRotation.started -= instance.OnResetRotation;
+            @ResetRotation.performed -= instance.OnResetRotation;
+            @ResetRotation.canceled -= instance.OnResetRotation;
             @Mouse.started -= instance.OnMouse;
             @Mouse.performed -= instance.OnMouse;
             @Mouse.canceled -= instance.OnMouse;
@@ -292,6 +321,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnInspect(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnResetRotation(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }

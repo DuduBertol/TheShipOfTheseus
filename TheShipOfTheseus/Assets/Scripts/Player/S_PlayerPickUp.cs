@@ -52,6 +52,15 @@ public class S_PlayerPickUp : MonoBehaviour
         GameInput.Instance.OnInspectAction += GameInput_OnInspectAction;
         GameInput.Instance.OnRotationAction += GameInput_OnRotationAction;
         GameInput.Instance.OnRotationCanceledAction += GameInput_OnRotationCanceledAction;
+        GameInput.Instance.OnResetRotationAction += GameInput_OnResetRotationAction;
+    }
+
+    private void GameInput_OnResetRotationAction(object sender, EventArgs e)
+    {
+        if(playerActionState != PlayerActionState.Inspect) return;
+
+        Debug.Log("Reset Rotation!"); 
+        ResetRotation();
     }
 
     private void GameInput_OnRotationCanceledAction(object sender, EventArgs e) // Mouse Esquerdo Hold
@@ -262,6 +271,11 @@ public class S_PlayerPickUp : MonoBehaviour
         heldObject.GetComponent<S_InteractableObject>().SetRotateBool(false);
     }
 
+    private void ResetRotation()
+    {
+    heldObject.GetComponent<S_InteractableObject>().ResetRotation();
+    }
+
     private void Interact(S_InteractableObject interactableObject)
     {
         if(heldObject == null)
@@ -275,13 +289,14 @@ public class S_PlayerPickUp : MonoBehaviour
 
             ChangeState(PlayerActionState.Interact);
         }
-        else
+        else if (interactableObject.gameObject == heldObject)
         //Dropei o objeto 
         {
+            heldObject.GetComponent<S_InteractableObject>().Drop();
+            heldObject.GetComponent<S_InteractableObject>().ClearParent();
+            Physics.IgnoreCollision(heldObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
+
             heldObject = null;
-            interactableObject.Drop();
-            interactableObject.ClearParent();
-            Physics.IgnoreCollision(interactableObject.GetComponent<Collider>(), playerCollider.GetComponent<Collider>(), false);
 
             ChangeState(PlayerActionState.AnyState);
         }

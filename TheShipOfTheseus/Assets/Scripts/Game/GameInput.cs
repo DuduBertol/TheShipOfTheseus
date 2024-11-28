@@ -13,6 +13,7 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnRotationAction;
     public event EventHandler OnRotationCanceledAction;
     public event EventHandler OnPauseAction;
+    public event EventHandler OnResetRotationAction;
 
     private PlayerInputActions playerInputActions;
 
@@ -29,6 +30,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Rotation.performed += Rotation_performed;
         playerInputActions.Player.Rotation.canceled += Rotation_canceled;
         playerInputActions.Player.Pause.performed += Pause_performed;
+        playerInputActions.Player.ResetRotation.performed += ResetRotation_performed;
     }
 
     private void OnDestroy() 
@@ -38,6 +40,7 @@ public class GameInput : MonoBehaviour
         playerInputActions.Player.Rotation.performed -= Rotation_performed;
         playerInputActions.Player.Rotation.canceled -= Rotation_canceled;
         playerInputActions.Player.Pause.performed -= Pause_performed;
+        playerInputActions.Player.ResetRotation.performed -= ResetRotation_performed;
 
         playerInputActions.Dispose();
     }
@@ -54,6 +57,10 @@ public class GameInput : MonoBehaviour
     private void Pause_performed(InputAction.CallbackContext context)
     {
         OnPauseAction?.Invoke(this, EventArgs.Empty);
+    }
+    private void ResetRotation_performed(InputAction.CallbackContext context)
+    {
+        OnResetRotationAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Rotation_canceled(InputAction.CallbackContext context)

@@ -153,4 +153,9 @@ public class S_InteractableObject : MonoBehaviour
 		}
 	}
 
+    public void ResetRotation()
+    {
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+    }
+
 }
